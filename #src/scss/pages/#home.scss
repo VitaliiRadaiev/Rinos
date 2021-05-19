@@ -1,0 +1,318 @@
+
+.promo-header {
+    position: relative;
+    padding-top: 160px;
+    margin-bottom: 90px;
+
+    @media (max-width: $md3+px) {
+        margin-bottom: 50px;
+    }
+
+    &__images {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__img {
+    }
+
+    &__body {
+        position: relative;
+        z-index: 2;
+
+        color: #fff;
+        min-width: 0;
+
+        & .swiper-container {
+            padding: 0;
+
+            @media (max-width: $md1+px) {
+                max-width: 920px;
+            }
+        }
+        & .swiper-slide {
+            padding: 38px 15px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 510px;
+
+            @media (max-width: $md3+px) {
+                min-height: 400px;
+            }
+            @media (max-width: $md4+px) {
+                min-height: 300px;
+            }
+        }
+    }
+
+    &__title {
+        max-width: 8.4677em;
+        margin-left: 6px;
+    }
+
+    &__btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        padding: 5px;
+        font-size: 32px;
+        transition: all .3s ease;
+
+        @media (min-width: 992px) {
+            &:hover {
+                color: $mainColor2;
+            }
+        }
+
+        @media (max-width: $md2+px) {
+            display: none;
+        }
+    }
+
+    &__btn-prev {
+        left: 15px;
+        &:before {
+            font-family: 'icomoon';
+            content: "\f0a8";
+        }
+    }
+
+    &__btn-next {
+        right: 15px;
+        &:before {
+            font-family: 'icomoon';
+            content: "\f0a9";
+        }
+    }
+}
+
+
+
+
+
+.home-product {
+    margin-bottom: 44px;
+
+    @media (max-width: $md3+px) {
+        margin-bottom: 25px;
+    }
+}
+
+
+.card {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(#dcdcdd, 0.35);
+    padding: 10px;
+    color: #fff;
+    position: relative;
+    
+    @media (min-width: 992px) {
+        &:hover {
+            .icon-chevron-right {
+                transform:  translateY(-50%) translateX(10px);
+            }
+        }
+    }
+
+		&__box {
+            position: relative;
+            margin-bottom: 11px;
+		}
+
+		&__img {
+            height: 0;
+            padding-bottom: 68%;
+		}
+
+		&__title {
+            position: absolute;
+            left: 20px;
+            bottom: 23px;
+            right: 20px;
+		}
+
+		&__text {
+            color: $textColor;
+            padding-left: 21px;
+            padding-right: 60px;
+            padding-bottom: 8px;
+            position: relative;
+
+            @media (max-width: $md3+px) {
+                padding-left: 0;
+            }
+		}
+
+        & .icon-chevron-right {
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            font-size: 30px;
+            color: $mainColor;
+            transition: all .3s ease;
+            transform: translateY(-50%);
+            @media (max-width: $md3+px) {
+                right: 20px;
+                font-size: 24px;
+            }
+        }
+}
+
+
+
+
+
+
+.text-block {
+    margin-bottom: 115px;
+
+    @media (max-width: $md2+px) {
+        margin-bottom: 90px;
+    }
+
+    @media (max-width: $md3+px) {
+        margin-bottom: 50px;
+    }
+    &__body {
+        max-width: 766px;
+        position: relative;
+
+        &.text-content {
+            & *:last-child {
+                margin-bottom: 0;
+            }
+            & h3 {
+                color: $mainColor2;
+            }
+        }
+    }
+
+    &__label {
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(110%, -32%);
+        width: 118px;
+        height: 117px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        & img, & svg {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+}
+
+
+
+
+
+.preview-article {
+    margin-bottom: 109px;
+    @media (max-width: $md2+px) {
+        margin-bottom: 90px;
+    }
+    @media (max-width: $md3+px) {
+        margin-bottom: 50px;
+    }
+    &__body {
+        background-color: $bg;
+        position: relative;
+        min-height: 550px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__bg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: calc(100% - 20px);
+        height: calc(100% - 20px);
+
+        @media (max-width: $md3+px) {
+            &:before {
+                position: absolute;
+                content: '';
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(#000, 0.2);
+                z-index: 1;
+            }
+        }
+    }
+
+    &__text-wrap {
+        max-width: 400px;
+        position: relative;
+        z-index: 2;
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        color: #fff;
+        padding: 77px 22px  48px 39px;
+
+        @media (max-width: $md4+px) {
+            padding: 50px 30px  48px;
+        }
+    }
+
+    &__suptitle {
+        color: $mainColor2;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 1.45em;
+    }
+
+    &__title {
+        margin-bottom: 0.6666em;
+    }
+
+    &__text {
+        margin-top: auto;
+        margin-bottom: 27px;
+        &.text-content {
+            & *:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+    }
+}
+
+
+
+
+
+.why-rinos {
+    margin-bottom: 69px;
+
+    @media (max-width: $md2+px) {
+        margin-bottom: 40px;
+    }
+    @media (max-width: $md3+px) {
+        margin-bottom: 25px;
+    }
+    &__title {
+        text-align: center;
+        color: $mainColor2;
+        margin-bottom: 57px;
+
+        @media (max-width: $md3+px) {
+            margin-bottom: 25px;
+        }
+    }
+}
