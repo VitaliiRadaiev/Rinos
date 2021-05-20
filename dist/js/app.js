@@ -992,7 +992,7 @@ if(gallerys.length) {
             },
             slidesPerView: 1,
             spaceBetween: 0,
-            autoHeight: true,
+           // autoHeight: true,
             speed: 800,
             loop: true,
             preloadImages: false,
