@@ -1,12 +1,42 @@
 
 
-var isMobile = { Android: function () { return navigator.userAgent.match(/Android/i); }, BlackBerry: function () { return navigator.userAgent.match(/BlackBerry/i); }, iOS: function () { return navigator.userAgent.match(/iPhone|iPad|iPod/i); }, Opera: function () { return navigator.userAgent.match(/Opera Mini/i); }, Windows: function () { return navigator.userAgent.match(/IEMobile/i); }, any: function () { return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows()); } };
+let isMobile = { Android: function () { return navigator.userAgent.match(/Android/i); }, BlackBerry: function () { return navigator.userAgent.match(/BlackBerry/i); }, iOS: function () { return navigator.userAgent.match(/iPhone|iPad|iPod/i); }, Opera: function () { return navigator.userAgent.match(/Opera Mini/i); }, Windows: function () { return navigator.userAgent.match(/IEMobile/i); }, any: function () { return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows()); } };
 
 
-$(document).ready(function () {
+window.addEventListener('load', function () {
+	
 	document.body.classList.add('is-load');
 
-	// === Проверка, поддержка браузером формата webp ==================================================================
+	//==== ADD PADDING-TOP ================================
+	{
+		let wrapper = document.querySelector('._page._padding-top');
+		if (wrapper) {
+			let header = document.querySelector('.header');
+			if(header) {
+				const setPedding = () => wrapper.style.paddingTop = header.clientHeight + 'px';
+				setPedding();
+				window.addEventListener('resize', setPedding);
+			}
+			
+		}
+	}
+	//==== AND ADD PADDING-TOP ================================
+
+	@@include('_function.js');
+	@@include('files/dynamic_adapt.js');
+	@@include('forms.js');
+	@@include('../common/header/header.js');
+	@@include('pages/home.js');
+	@@include('../common/gallery/gallery.js');
+	@@include('../common/latest-news/latest-news.js');
+	@@include('../common/checkbox/checkbox.js');
+	
+});
+
+window.addEventListener('DOMContentLoaded', function() {
+	if(isMobile) {
+		document.body.classList.add('_is-mobile');
+	}
 
 	function testWebP(callback) {
 
@@ -25,30 +55,6 @@ $(document).ready(function () {
 			document.querySelector('body').classList.add('no-webp');
 		}
 	});
-
-
-			// ==== ADD PADDING-TOP ================================
-			// {
-			// 	let wrapper = document.querySelector('.wrapper');
-			// 	if (wrapper) {
-			// 		let header = document.querySelector('.header');
-			// 		if(header) {
-			// 			let headerHeight = header.clientHeight;
-			// 			wrapper.style.paddingTop = headerHeight + 'px';
-			// 		}
-					
-			// 	}
-			// }
-			// ==== AND ADD PADDING-TOP ================================
-
-	@@include('_function.js');
-	@@include('files/dynamic_adapt.js');
-	@@include('forms.js');
-	@@include('../common/header/header.js');
-	@@include('pages/home.js');
-	@@include('../common/gallery/gallery.js');
-	@@include('../common/latest-news/latest-news.js');
-	
 });
 
 //@@include('plagins/lazy-load.js');

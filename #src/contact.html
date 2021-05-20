@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('_head.html',{
+"title": "New Project"
+})
+
+<body>
+	<!-- == TOP LINE ================== -->
+	@@include('common/header/_header.html',{})
+	<!-- == // TOP LINE ================== -->
+
+
+	<main class="_page contact-page _padding-top">
+        <section class="contact">
+            <div class="container">
+                <div class="contact__head">
+                    <h3 class="contact__title title-2">Contact</h3>
+                    <div class="contact__text text-content">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+                </div>
+                <div class="contact__body">
+                    <div class="contact__column-1">
+                        <div class="contact__box">
+                            <div class="contact__box-title">Rinos BV</div>
+                            <ul class="contact__box-list">
+                                <li>
+                                    Klaas Fuitestraat 12
+                                </li>
+                                <li>
+                                    8281 BZ Genemuiden
+                                </li>
+                                <li>
+                                    The Netherlands
+                                </li>
+                            </ul>
+
+                            <ul class="contact__box-list">
+                                <li>
+                                    T: +31 38 385 35 00
+                                </li>
+                                <li>
+                                    E: customerservice@rinos.com
+                                </li>
+                                <li>
+                                    F: +31 38 385 64 35
+                                </li>
+                            </ul>
+                            <a href="tel:31383853500" class="contact__box-btn btn-default">Call us at +31 38 385 35 00</a>
+                        </div>
+                        <a class="link" href="#">Legal information</a>
+                    </div>
+
+                    <div class="contact__column-2">
+                        <form action="" class="contact-form dark-form">
+                            <div class="contact-form__item">
+                                <input class="input" type="text" placeholder="Name">
+                            </div>
+                            <div class="contact-form__item">
+                                <input class="input" type="email" placeholder="E-mail address *">
+                            </div>
+                            <div class="contact-form__item">
+                                <textarea class="textarea" placeholder="Message"></textarea>
+                            </div>
+                            <div class="contact-form__bottom">
+                                <div class="checkbox-wrap">
+                                    <input class="checkbox" type="checkbox" id="" name="" checked>
+                                    <label class="checkbox-wrap__label" for="">I agree to the <a href="#">privacy policy</a></label>
+                                </div>
+                                <button class="contact-form__submit btn-default" type="submit">Send message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="latest-news">
+			<div class="latest-news__bg ibg">
+				<img src="img/photo/gird-bg.png" alt="">
+			</div>
+			<div class="latest-news__body container">
+				<h3 class="latest-news__title title-3">Latest news and highlights</h3>
+
+				<ul class="latest-news__list">
+					<li>
+						<a href="#" class="latest-news__link">
+							<div class="latest-news__link-img">
+								<img src="img/icons/news-icon1.png" alt="">
+							</div>
+							<div class="latest-news__link-date">20 feb 2021</div>
+							<div class="latest-news__link-title">Het geheim van de verdwenen voetstap</div>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="latest-news__link">
+							<div class="latest-news__link-img">
+								<img src="img/icons/news-icon1.png" alt="">
+							</div>
+							<div class="latest-news__link-date">12 feb 2021</div>
+							<div class="latest-news__link-title">We live and breathe matting</div>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="latest-news__link">
+							<div class="latest-news__link-img">
+								<img src="img/icons/news-icon2.png" alt="">
+							</div>
+							<div class="latest-news__link-date">19 jan 2021
+							</div>
+							<div class="latest-news__link-title">White paper: Lorem ipsum zandabsorptie</div>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="latest-news__link">
+							<div class="latest-news__link-img">
+								<img src="img/icons/news-icon1.png" alt="">
+							</div>
+							<div class="latest-news__link-date">2 jan 2021
+							</div>
+							<div class="latest-news__link-title">Er gaat wel 2 kg zand in een m² mat</div>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="latest-news__link">
+							<div class="latest-news__link-img">
+								<img src="img/icons/news-icon1.png" alt="">
+							</div>
+							<div class="latest-news__link-date">18 dec 2020
+							</div>
+							<div class="latest-news__link-title">Kokosmatten worden gemaakt van echte kokosnoten</div>
+						</a>
+					</li>
+				</ul>
+
+				<div class="latest-news__btn-group">
+					<a href="#" class="btn-default">All resources</a>
+					<a href="#" class="btn-default">All news</a>
+				</div>
+			</div>
+		</section>
+    </main>
+
+
+	<!-- == FOOTER ================== -->
+	@@include('common/footer/_footer.html',{})
+	<!-- == // FOOTER ================== -->
+
+	@@include('_js.html',{})
+</body>
+
+</html>

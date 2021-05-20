@@ -1,45 +1,26 @@
 
 
-var isMobile = { Android: function () { return navigator.userAgent.match(/Android/i); }, BlackBerry: function () { return navigator.userAgent.match(/BlackBerry/i); }, iOS: function () { return navigator.userAgent.match(/iPhone|iPad|iPod/i); }, Opera: function () { return navigator.userAgent.match(/Opera Mini/i); }, Windows: function () { return navigator.userAgent.match(/IEMobile/i); }, any: function () { return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows()); } };
+let isMobile = { Android: function () { return navigator.userAgent.match(/Android/i); }, BlackBerry: function () { return navigator.userAgent.match(/BlackBerry/i); }, iOS: function () { return navigator.userAgent.match(/iPhone|iPad|iPod/i); }, Opera: function () { return navigator.userAgent.match(/Opera Mini/i); }, Windows: function () { return navigator.userAgent.match(/IEMobile/i); }, any: function () { return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows()); } };
 
 
-$(document).ready(function () {
+window.addEventListener('load', function () {
+	
 	document.body.classList.add('is-load');
 
-	// === Проверка, поддержка браузером формата webp ==================================================================
-
-	function testWebP(callback) {
-
-		var webP = new Image();
-		webP.onload = webP.onerror = function () {
-			callback(webP.height == 2);
-		};
-		webP.src = "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
-	}
-
-	testWebP(function (support) {
-
-		if (support == true) {
-			document.querySelector('body').classList.add('webp');
-		} else {
-			document.querySelector('body').classList.add('no-webp');
+	//==== ADD PADDING-TOP ================================
+	{
+		let wrapper = document.querySelector('._page._padding-top');
+		if (wrapper) {
+			let header = document.querySelector('.header');
+			if(header) {
+				const setPedding = () => wrapper.style.paddingTop = header.clientHeight + 'px';
+				setPedding();
+				window.addEventListener('resize', setPedding);
+			}
+			
 		}
-	});
-
-
-			// ==== ADD PADDING-TOP ================================
-			// {
-			// 	let wrapper = document.querySelector('.wrapper');
-			// 	if (wrapper) {
-			// 		let header = document.querySelector('.header');
-			// 		if(header) {
-			// 			let headerHeight = header.clientHeight;
-			// 			wrapper.style.paddingTop = headerHeight + 'px';
-			// 		}
-					
-			// 	}
-			// }
-			// ==== AND ADD PADDING-TOP ================================
+	}
+	//==== AND ADD PADDING-TOP ================================
 
 	//SlideToggle
 let _slideUp = (target, duration = 500) => {
@@ -1005,17 +986,16 @@ if ($promoHeader) {
 if(gallerys.length) {
     gallerys.forEach(gallery => {
         let dataSlider = new Swiper(gallery.querySelector('.gallery__slider'), {
-            // autoplay: {
-            //     delay: 3000,
-            //     disableOnInteraction: false,
-            // },
-            
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
             slidesPerView: 1,
             spaceBetween: 0,
             autoHeight: true,
             speed: 800,
             loop: true,
-            //preloadImages: false,
+            preloadImages: false,
             lazy: {
             	loadPrevNext: true,
             },
@@ -1037,7 +1017,55 @@ if($latesNewsList) {
         });
     }
 };
+	(function checkboxHandler() {
+	let $checkboxWrap = document.querySelectorAll('.checkbox-wrap');
+	if($checkboxWrap.length) {
+		$checkboxWrap.forEach((item, index) => {
+			let input = item.querySelector('input[type="checkbox"]');
+			input.checked = true;
+			item.querySelector('.checkbox-wrap__label').setAttribute('for', `_form${index}`)
+			input.id = `_form${index}`;
+			
+			if(input.checked) {
+				item.classList.add('_is-checked');
+			}
+			
+			input.addEventListener('click', () => {
+				if(input.checked) {
+					item.classList.add('_is-checked');
+				} else {
+					item.classList.remove('_is-checked');
+				}
+				
+			})
+		})
+	}
+})();;
 	
+});
+
+window.addEventListener('DOMContentLoaded', function() {
+	if(isMobile) {
+		document.body.classList.add('_is-mobile');
+	}
+
+	function testWebP(callback) {
+
+		var webP = new Image();
+		webP.onload = webP.onerror = function () {
+			callback(webP.height == 2);
+		};
+		webP.src = "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
+	}
+
+	testWebP(function (support) {
+
+		if (support == true) {
+			document.querySelector('body').classList.add('webp');
+		} else {
+			document.querySelector('body').classList.add('no-webp');
+		}
+	});
 });
 
 //// html example --- <img class="lazy" data-src="https://images.unsplash.com/photo-1606851091851-e8c8c0fca5ba?ixid=MXwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" src="img/photo/placeholder.jpg" alt="img">

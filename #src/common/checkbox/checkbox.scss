@@ -1,0 +1,54 @@
+.checkbox-wrap {
+    & input[type="checkbox"], & .checkbox, & br {
+        display: none;
+    }
+
+	&._is-checked {
+		& .checkbox-wrap__label {
+			&:before {
+				background-image: url(../img/icons/check.svg);
+				background-size: 80%;
+				background-repeat: no-repeat;
+				background-position: center;
+			}
+		}
+	}
+
+    &__label {
+        position: relative;
+        cursor: pointer;
+        display: flex;
+
+        & a {
+            display: inline-block;
+            margin: 0 5px;
+            transition: all .3s ease;
+            color: $mainColor;
+
+            @media (min-width: 992px) {
+                &:hover {
+                    color: $hover;
+                }
+            }
+        }
+
+
+
+        &:before {
+            margin-right: 13px;
+            margin-top: -6px;
+            content: '';
+            height: 30px;
+            min-width: 30px;
+            background-color: var(--input-bg-color, rgba(220, 220, 221, 0.3));
+            border: 1px solid transparent;
+            transition: all .3s ease;
+            
+            @media (min-width: 992px) {
+                &:hover {
+                    border-color: var(--input-border-color, rgb(220, 220, 221));
+                }
+            }
+        }   
+    }
+}
