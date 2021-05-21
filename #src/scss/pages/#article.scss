@@ -1,0 +1,120 @@
+.article {
+    padding-top: 49px;
+    margin-bottom: 57px;
+    @media (max-width: $md3+px) {
+        margin-bottom: 40px;
+    }
+    & > .container {
+        max-width: 930px;
+    }
+
+
+    &__head {
+        margin-bottom: 53px;
+
+        @media (max-width: $md3+px) {
+            margin-bottom: 25px;
+        }
+    }
+
+    &__title {
+        font-weight: 700;
+        color: $mainColor2;
+        margin-bottom: 6px;
+    }
+
+    &__date {
+        font-size: 14px;
+        line-height: 24px;
+        margin-bottom: 19px;
+    }
+
+    &__img {
+        background-color: $bg;
+        padding: 10px;
+        margin-bottom: 30px;
+        margin: 0 -10px;
+        & img {
+            width: 100%;
+            height: auto;
+        }
+
+    }
+
+    &__text {
+        margin-bottom: 62px;
+
+        @media (max-width: $md3+px) {
+            margin-bottom: 25px;
+        }
+
+        &.text-content {
+            & *:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &__gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 66px;
+
+        @media (min-width: 992px) {
+            margin:  0 -10px;
+        }
+
+        @media (max-width: $md3+px) {
+            margin-bottom: 25px;
+        }
+    }
+
+    &__gallery-item {
+        flex: 0 1 calc(50% - 5px);
+        margin-bottom: 10px;
+        height: 460px;
+        background-color: $bg;
+        padding: 10px;
+
+        @media (max-width: $md2+px) {
+            flex: 0 1 50%;
+            height: 0;
+            padding-bottom: 50%;
+            position: relative;
+            margin-bottom: -10px;
+
+            &:nth-child(odd) {
+                & img {
+                    width: calc(100% - 15px);
+                    display: block;
+                    transform: translate(calc(-50% + 2.5px), -50%);
+                }
+            }
+            &:nth-child(even) {
+                & img {
+                    width: calc(100% - 15px);
+                    display: block;
+                    transform: translate(calc(-50% - 2.5px), -50%);
+                }
+            }
+
+        }
+
+        & img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+            @media (max-width: $md2+px) {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                
+                height: calc(100% - 20px);
+            }
+        }
+    }
+}
+

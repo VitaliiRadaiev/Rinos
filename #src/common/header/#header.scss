@@ -194,6 +194,9 @@
         margin-left: 45px;
         @media (min-width: 992px) {
             margin-top: 9px;
+            &.btn-default {
+                font-size: 20px;
+            }
         }
         @media (max-width: $md2+px) {
             margin-left: 91px;

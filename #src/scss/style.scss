@@ -99,7 +99,7 @@ body {
 	flex-direction: column;
 	position: relative;
 
-	&.lock {
+	&._lock {
 		overflow: hidden;
 	}
 
@@ -379,6 +379,9 @@ h1 {
 	@media (max-width: $md3+px) {
 		font-size: 36px;
 	}
+	@media (max-width: $md4+px) {
+		font-size: 30px;
+	}
 }
 
 .title-3 {
@@ -442,7 +445,7 @@ h1 {
 	min-width: 120px;
 	background-color: $mainColor;
 	padding: 8px 24px 10px;
-	font-size: 20px;
+	font-size: 16px;
 	line-height: 1.1em;
 	font-weight: 600;
 	transition: all 0.3s ease;
@@ -589,6 +592,14 @@ button.btn-default {
 }
 
 // === TEXT CONTETN BLOCK ========================================================================
+.float-right {
+	float:right;
+}
+.float-left {
+	float:left;
+}
+
+
 .text-content {
 	font-size: 16px;
 	font-weight: 400;
@@ -609,24 +620,109 @@ button.btn-default {
 		}
 	}
 	& h4 {
+		font-size: 22px;
+		font-weight: 700;
+		line-height: 1.0909em;
+		margin-bottom: 0.56em;
 	}
 
 	& h5 {
+		font-size: 18px;
+		font-weight: 700;
+		line-height: 1.33333em;
+		margin-bottom: 0.3em;
 	}
 	& h6 {
 	}
 
 	& p {
-		margin-bottom: 1.2em;
+		margin-bottom: 1.55em;
+
+		& ~ h4 {
+			margin-top: 1.45em;
+		}
+
+		& ~ h5 {
+			margin-top: 1.9em;
+		}
 	}
 
 	& ul {
+		padding-left: 50px;
+		margin: 10px 0;
+		& > li {
+			position: relative;
+
+			&:before {
+				position: absolute;
+				content: '';
+				top: 10px;
+				left: -13px;
+				height: 4px;
+				width: 4px;
+				border-radius: 50%;
+				background-color: $mainColor2;
+			}
+		}
 	}
 
 	& ol {
+		padding-left: 32.5px;
+		& > li {
+			list-style-position: inside;
+		}
 	}
 
 	& figure {
+		display: block;
+		background-color: $bg;
+		padding: 10px;
+		margin-bottom: 25px;
+
+		&.float-right {
+			display: inline-block;
+			margin-left: 20px;
+			margin-bottom: 0;
+
+			@media (max-width: $md3+px) {
+				float: none;
+				margin: 0 -10px;
+				width: calc(100% + 20px);
+				& + p, & + ul, & + ol {
+					margin-top: 15px;
+				}
+			}
+			& img {
+				@media (max-width: $md3+px) {
+					width: 100%
+				}
+				width: auto;
+			}
+		}
+		&.float-left {
+			display: inline-block;
+			margin-right: 20px;
+			margin-bottom: 0;
+
+			@media (max-width: $md3+px) {
+				float: none;
+				margin: 0px -10px;
+				width: calc(100% + 20px);
+				& + p, & + ul, & + ol {
+					margin-top: 15px;
+				}
+			}
+			& img {
+				@media (max-width: $md3+px) {
+					width: 100%
+				}
+				width: auto;
+			}
+		}
+		& img {
+			width: 100%;
+			height: auto;
+		}
 	}
 
 	& a {
@@ -649,6 +745,7 @@ button.btn-default {
 @import "../common/gallery/gallery";
 @import "../common/cta/cta";
 @import "../common/latest-news/latest-news";
+@import "../common/pagination/pagging";
 // ==== BLOCKS =====================================================
 
 // ==== PAGES =====================================================
@@ -656,6 +753,6 @@ button.btn-default {
 @import "pages/#home";
 @import "pages/#contact";
 @import "pages/#downloads";
-
-
+@import "pages/#article";
+@import "pages/#news";
 // ==== AND PAGES =====================================================
