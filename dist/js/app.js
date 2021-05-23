@@ -9,7 +9,7 @@ window.addEventListener('load', function () {
 
 	//==== ADD PADDING-TOP ================================
 	{
-		let wrapper = document.querySelector('._page._padding-top');
+		let wrapper = document.querySelector('._padding-top');
 		if (wrapper) {
 			let header = document.querySelector('.header');
 			if(header) {
@@ -937,7 +937,6 @@ if($header) {
 ;
 	let $promoHeader = document.querySelector('.promo-header');
 if ($promoHeader) {
-    let $header = document.querySelector('.header');
     let sliderImage, sliderContent;
 
     sliderImage = new Swiper($promoHeader.querySelector('.promo-header__images'), {
@@ -976,14 +975,41 @@ if ($promoHeader) {
     });
 
     sliderContent.controller.control = sliderImage;
+};
+	let $specifications = document.querySelector('.specifications');
+if($specifications) {
+    let $table = $specifications.querySelector('.specifications__table');
+    let $btn =  $specifications.querySelector('.specifications__btn');
+    let height = 648;
 
+    if(document.documentElement.clientWidth < 768) height = 448;
 
-    if($header) {
-        $promoHeader.style.paddingTop = $header.clientHeight + 'px';
+    if($table.clientHeight < height) {
+        $specifications.classList.add('_table-is-small');
+    } else {
+        $btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if(!$specifications.classList.contains('_table-open')) {
+                $specifications.classList.add('_table-open');
+                $specifications.style.height = $table.clientHeight + 40 + 'px';
+                $btn.innerText = 'Close specifications';
+            } else {
+                $specifications.classList.remove('_table-open');
+                $specifications.style.height = height + 'px';
+                $btn.innerText = 'Expand specifications';
+            }
+        })
+
+        window.addEventListener('resize', () => {
+            if($specifications.classList.contains('_table-open')) {
+                $specifications.style.height = $table.clientHeight + 40 + 'px';
+            }
+        })
     }
 };
 	let gallerys = [].slice.call(document.querySelectorAll('.gallery'));
 if(gallerys.length) {
+    let length = document.querySelector('.gallery__slider .swiper-wrapper').children.length;
     gallerys.forEach(gallery => {
         let dataSlider = new Swiper(gallery.querySelector('.gallery__slider'), {
             autoplay: {
@@ -992,10 +1018,10 @@ if(gallerys.length) {
             },
             slidesPerView: 1,
             spaceBetween: 0,
-           // autoHeight: true,
             speed: 800,
-            loop: true,
+            loop: length == 1 ? false : true,
             preloadImages: false,
+            watchOverflow: true,
             lazy: {
             	loadPrevNext: true,
             },
@@ -1041,6 +1067,98 @@ if($latesNewsList) {
 		})
 	}
 })();;
+	let $tableTabs = document.querySelector('.table-tabs');
+if($tableTabs) {
+    let $tabs = $tableTabs.querySelectorAll('td');
+    let $tabsContent = document.querySelectorAll('.tabs-content');
+    if($tabs.length) {
+        let $tabActiveId = $tableTabs.querySelector('td.active').dataset.tab;
+        if($tabActiveId) {
+            showTabContent($tabActiveId);
+        }
+
+
+        $tabs.forEach($tab => {
+            $tab.addEventListener('click', () => {
+                let id = $tab.dataset.tab;
+                if(id) {
+                    showTabContent(id)
+                }
+
+                $tab.classList.add('active');
+
+                $tabs.forEach($el => {
+                    if($el === $tab) return;
+
+                    $el.classList.remove('active');
+                })
+            })
+        })
+    }
+
+    function showTabContent(id) {
+        if($tabsContent.length) {
+            $tabsContent.forEach($tabContent => {
+                $tabContent.dataset.tab === id ? $tabContent.classList.add('_content-show') : $tabContent.classList.remove('_content-show');
+            })
+        }
+    }
+};
+	function cardVideoHandler() {
+	function togglePlayPause(video,btn) {
+		if(video.paused) {
+			video.play();
+			btn.firstElementChild.className = 'icon-pause';
+			video.setAttribute('controls', true);
+
+		} else {
+			video.pause();
+			btn.firstElementChild.className = 'icon-play2';
+			btn.style.opacity = '1';
+		}
+	}
+
+	let videoBlock = document.querySelectorAll('.video-block');
+	if(videoBlock.length) {
+		videoBlock.forEach((item) => {
+			let video = item.querySelector('.video-block__video');
+			let btn = item.querySelector('.video-block__play-pause');
+
+			if(video) {
+				btn.addEventListener('click', (e) => {
+					e.preventDefault();
+					togglePlayPause(video,btn);
+				});
+				video.addEventListener('ended', () => {
+					video.pause();
+					btn.firstElementChild.className = 'icon-play2';
+					btn.style.opacity = '1';
+					video.removeAttribute('controls');
+				});
+				video.addEventListener('play', () => {
+					btn.firstElementChild.className = 'icon-pause';
+				});
+				video.addEventListener('pause', () => {
+					btn.firstElementChild.className = 'icon-play2';
+				});
+				video.addEventListener('mouseenter', (e) => { 
+					if(!video.paused) {
+						btn.style.opacity = '1';
+					} 
+				});
+				video.addEventListener('mouseleave', (e) => { 
+					if(!video.paused) {
+						btn.style.opacity = '0';
+					} 
+				});
+
+			}
+		})
+	}
+
+}
+
+cardVideoHandler();;
 	
 });
 

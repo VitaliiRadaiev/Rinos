@@ -1,6 +1,5 @@
 let $promoHeader = document.querySelector('.promo-header');
 if ($promoHeader) {
-    let $header = document.querySelector('.header');
     let sliderImage, sliderContent;
 
     sliderImage = new Swiper($promoHeader.querySelector('.promo-header__images'), {
@@ -39,9 +38,4 @@ if ($promoHeader) {
     });
 
     sliderContent.controller.control = sliderImage;
-
-
-    if($header) {
-        $promoHeader.style.paddingTop = $header.clientHeight + 'px';
-    }
 }

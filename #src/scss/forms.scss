@@ -31,45 +31,48 @@
 // //</BUTTONS>====================================================================================================
 
 //<SELECT (sel+tab)>====================================================================================================
+.select-wrap {
+}
+.select-label {
+	font-size: 13px;
+	font-weight: 400;
+	line-height: 19px;
+	margin-bottom: 4px;
+}
 .select {
 	position: relative;
-	// .select__item
+	min-width: 255px;
 	&__item {
 		position: relative;
-		//font-family: $mainFontFamily;
-		min-width: 294px;
 	}
-	// .select__title
 	&__title {
-		color: $textColor;
-		background-color: #fff;
 		cursor: pointer;
-		@media (max-width: $md2+px) {
-			font-size: 18px;
-		}
 	}
-	// .select__value
 	&__value {
 		display: flex;
-		font-size: 14px;
-		line-height: 170%;
-		padding: 0px 15px;
 		align-items: center;
-		justify-content: space-between;
-		flex-direction: row-reverse;
+		background-color: $bg;
+		min-height: 44px;
+		position: relative;
+		padding: 8px 35px 8px 12px;
+		font-size: 16px;
+		line-height: 1.2em;
 		span {
-			//font-family: $mainFontFamily;
+			font-family: $mainFontFamily;
 			display: -webkit-box;
 			-webkit-line-clamp: 1;
 			-webkit-box-orient: vertical;
 		}
 		&:before {
-			content: "+";
+			position: absolute;
+			top: 59%;
+			right: 15px;
+			transform: translateY(-50%);
+			content: "";
 			display: inline-block;
 			transition: all 0.3s ease 0s;
-/*			width: 11px;
-			height: 7px;*/
-			//background: url("../img/icons/select.svg") center / 100% no-repeat;
+			border: 6px solid transparent; 
+			border-top: 6px solid $textColor;
 		}
 	}
 	&__input {
@@ -79,32 +82,38 @@
 	}
 	// .select__options
 	&__options {
-		color: #000;
 		display: none;
 		position: absolute;
-		top: 29px;
-		border-radius: 0 0 4px 4px;
+		top: calc(100% + 4px);
 		min-width: 100%;
 		left: 0;
-		background-color: #fff;
-		border-top: 0;
-		border-top: 0;
-		font-size: 14px;
-		line-height: 170%;
-		padding: 10px 0px 5px 0px;
+		background-color: $bg;
 		color: $textColor;
-		box-shadow: 0px 0px 10px rgba(236, 157, 171, 0.3);
-		max-height: 315px;
+		max-height: 239px;
 		overflow-y: auto;
+		font-size: 16px;
+		line-height: 1.2em;
+		padding: 4px 0;
+
+		&::-webkit-scrollbar {
+			width: 5px;
+		}
+		&::-webkit-scrollbar-button {
+			display: none;
+		}
+		&::-webkit-scrollbar-thumb {
+			background-color: rgba(#3c3c3c, 0.6);
+			border-radius: 3px;
+			
+		}
 	}
 	// .select__option
 	&__option {
 		cursor: pointer;
-		padding: 5px 15px;
-		margin: 0px 0px 0px 0px;
+		padding: 7px 35px 7px 12px;
 		@media (min-width: 992px) {
 			&:hover {
-				background: rgba($mainColor, 0.3);
+				background-color: #ffa400;
 			}
 		}
 	}
@@ -112,7 +121,7 @@
 		z-index: 5;
 		.select__value {
 			&:before {
-				transform: rotate(-180deg);
+				transform: translateY(-90%) scale(1, -1);
 			}
 		}
 		.select__options {
@@ -149,73 +158,70 @@
 
 //<RADIO>====================================================================================================
 .radio-wrap {
+	&__radio {
+		display: none;
 
+		&:checked {
+			& + .radio-wrap__label {
+				&:after {
+					transform: translateY(-50%) scale(1);
+				}
+			}
+		}
+	}
 
-    &__radio {
-        display: none;
+	&__label {
+		display: flex;
+		align-items: center;
+		//font-family: $seconFontFamily;
+		font-weight: bold;
+		font-size: 18px;
+		line-height: 120%;
+		text-transform: capitalize;
+		color: rgba(#000, 0.5);
+		position: relative;
+		padding-left: 30px;
+		cursor: pointer;
 
-        &:checked {
-            & + .radio-wrap__label {
-                &:after {
-                    transform: translateY(-50%) scale(1);
-                }
-            }
-        }
-    }
+		&.visamaster {
+			color: #000;
+		}
 
-    &__label {
-        display: flex;
-        align-items: center;
-        //font-family: $seconFontFamily;
-        font-weight: bold;
-        font-size: 18px;
-        line-height: 120%;
-        text-transform: capitalize;
-        color: rgba(#000, 0.5);
-        position: relative;
-        padding-left: 30px;
-        cursor: pointer;
+		& > span {
+			min-width: 50px;
+			margin-right: 15px;
 
-        &.visamaster {
-            color: #000;
-        }
+			& img {
+				width: 100%;
+			}
+		}
 
-        & > span {
-            min-width: 50px;
-            margin-right: 15px;
+		&:before {
+			position: absolute;
+			content: "";
+			top: 50%;
+			left: 0;
+			transform: translateY(-50%);
+			height: 15px;
+			width: 15px;
+			border-radius: 50%;
+			border: 1px solid #000;
+		}
 
-            & img {
-                width: 100%;
-            }
-        }
-
-        &:before {
-            position: absolute;
-            content: '';
-            top: 50%;
-            left: 0;
-            transform: translateY(-50%);
-            height: 15px;
-            width: 15px;
-            border-radius: 50%;
-            border: 1px solid #000;
-        }
-
-        &:after {
-            position: absolute;
-            content: '';
-            top: 50%;
-            left: 0;
-            transform: translateY(-50%) scale(0);
-            transition: all .2s ease;
-            height: 9px;
-            width: 9px;
-            border-radius: 50%;
-            background: red;
-            left: 3px;
-            
-        }
-    }
+		&:after {
+			position: absolute;
+			content: "";
+			top: 50%;
+			left: 0;
+			transform: translateY(-50%) scale(0);
+			transition: all 0.2s ease;
+			height: 9px;
+			width: 9px;
+			border-radius: 50%;
+			background: red;
+			left: 3px;
+		}
+	}
 }
 //</RADIO>====================================================================================================
 
@@ -334,59 +340,59 @@
 // //</RATING>====================================================================================================
 
 //<QUANTITY>====================================================================================================
-	// .quantity {
-	// 	width: 109px;
-	// 	height: 40px;
-	// 	display: flex;
-	// 	background: #F8F8FA;
-	// 	// .quantity__button
-	// 	&__button {
-	// 		flex: 0 0 30px;
-	// 		position: relative;
-	// 		cursor: pointer;
-	// 		&::before,
-	// 		&::after {
-	// 			content: "";
-	// 			position: absolute;
-	// 			top: 50%;
-	// 			left: 50%;
-	// 			transition: all 0.3s ease 0s;
-	// 			margin: 0px 0px 0px -4.5px;
-	// 			background-color: #a6a6a6;
-	// 			width: 9px;
-	// 			height: 1px;
-	// 		}
-	// 		@media (min-width: $md2+px) {
-	// 			&:hover {
-	// 				&::before,
-	// 				&::after {
-	// 					background-color: rgba(0, 0, 0, 0.5);
-	// 				}
-	// 			}
-	// 		}
-	// 		// .quantity__button_plus
-	// 		&_plus {
-	// 			&::before {
-	// 				transform: rotate(-90deg);
-	// 			}
-	// 		}
-	// 		// .quantity__button_minus
-	// 		&_minus {
-	// 		}
-	// 	}
-	// 	// .quantity__input
-	// 	&__input {
-	// 		flex: 1 1 auto;
-	// 		input {
-	// 			background: #F8F8FA;
-	// 			height: 100%;
-	// 			color: $textColor;
-	// 			font-size: 14px;
-	// 			width: 100%;
-	// 			text-align: center;
-	// 		}
-	// 	}
-	// }
+// .quantity {
+// 	width: 109px;
+// 	height: 40px;
+// 	display: flex;
+// 	background: #F8F8FA;
+// 	// .quantity__button
+// 	&__button {
+// 		flex: 0 0 30px;
+// 		position: relative;
+// 		cursor: pointer;
+// 		&::before,
+// 		&::after {
+// 			content: "";
+// 			position: absolute;
+// 			top: 50%;
+// 			left: 50%;
+// 			transition: all 0.3s ease 0s;
+// 			margin: 0px 0px 0px -4.5px;
+// 			background-color: #a6a6a6;
+// 			width: 9px;
+// 			height: 1px;
+// 		}
+// 		@media (min-width: $md2+px) {
+// 			&:hover {
+// 				&::before,
+// 				&::after {
+// 					background-color: rgba(0, 0, 0, 0.5);
+// 				}
+// 			}
+// 		}
+// 		// .quantity__button_plus
+// 		&_plus {
+// 			&::before {
+// 				transform: rotate(-90deg);
+// 			}
+// 		}
+// 		// .quantity__button_minus
+// 		&_minus {
+// 		}
+// 	}
+// 	// .quantity__input
+// 	&__input {
+// 		flex: 1 1 auto;
+// 		input {
+// 			background: #F8F8FA;
+// 			height: 100%;
+// 			color: $textColor;
+// 			font-size: 14px;
+// 			width: 100%;
+// 			text-align: center;
+// 		}
+// 	}
+// }
 //</QUANTITY>====================================================================================================
 
 //<PRICE FILTER>====================================================================================================
@@ -394,7 +400,7 @@
 // 	padding-top: 22px;
 // 	&__slider {
 // 		height: 2px;
-		
+
 // 		margin-bottom: 30px;
 
 // 		@media (max-width: $md2+px ) {
@@ -459,7 +465,7 @@
 // 		width: 10%;
 // 		height: 10%;
 // 		display: flex;
-// 		justify-content: flex-end;		
+// 		justify-content: flex-end;
 // 	}
 
 // 	& .noUi-connect {
@@ -489,7 +495,7 @@
 
 // .values-price-filter {
 // 	margin: 0px;
-	
+
 // 	& .input {
 // 		display: none;
 // 	}

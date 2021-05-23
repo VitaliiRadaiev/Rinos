@@ -1,5 +1,6 @@
 let gallerys = [].slice.call(document.querySelectorAll('.gallery'));
 if(gallerys.length) {
+    let length = document.querySelector('.gallery__slider .swiper-wrapper').children.length;
     gallerys.forEach(gallery => {
         let dataSlider = new Swiper(gallery.querySelector('.gallery__slider'), {
             autoplay: {
@@ -8,10 +9,10 @@ if(gallerys.length) {
             },
             slidesPerView: 1,
             spaceBetween: 0,
-           // autoHeight: true,
             speed: 800,
-            loop: true,
+            loop: length == 1 ? false : true,
             preloadImages: false,
+            watchOverflow: true,
             lazy: {
             	loadPrevNext: true,
             },

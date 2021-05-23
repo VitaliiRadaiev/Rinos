@@ -192,6 +192,8 @@
 
     &__btn {
         margin-left: 45px;
+        padding: 8px 15px 10px;
+        min-width: 120px;
         @media (min-width: 992px) {
             margin-top: 9px;
             &.btn-default {

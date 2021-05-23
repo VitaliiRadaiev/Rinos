@@ -8,7 +8,8 @@
     }
 
     &__slider {
-
+        margin-top: -30px;
+        padding-top: 30px;
         @media (min-width: 992px) {
             margin-left: -5px;
             margin-right: -25px;
@@ -42,6 +43,8 @@
     }
 
     &__slider-item {
+        position: relative;
+        padding: 1px;
     }
 
     &__head {
@@ -163,4 +166,15 @@
             }
         }
     }
+
+    // &__text-bottom {
+    //     position: absolute;
+    //     bottom: 0;
+    //     right: 18%;
+    //     max-width: 222px;
+
+    //     @media (max-width: 1550px) {
+    //         right: 11%;
+    //     }
+    // }
 }

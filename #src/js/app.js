@@ -9,7 +9,7 @@ window.addEventListener('load', function () {
 
 	//==== ADD PADDING-TOP ================================
 	{
-		let wrapper = document.querySelector('._page._padding-top');
+		let wrapper = document.querySelector('._padding-top');
 		if (wrapper) {
 			let header = document.querySelector('.header');
 			if(header) {
@@ -27,9 +27,12 @@ window.addEventListener('load', function () {
 	@@include('forms.js');
 	@@include('../common/header/header.js');
 	@@include('pages/home.js');
+	@@include('pages/product-detail.js');
 	@@include('../common/gallery/gallery.js');
 	@@include('../common/latest-news/latest-news.js');
 	@@include('../common/checkbox/checkbox.js');
+	@@include('../common/table-tabs/table-tabs.js');
+	@@include('../common/video-block/video-block.js');
 	
 });
 
