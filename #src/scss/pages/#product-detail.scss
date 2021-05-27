@@ -574,6 +574,14 @@
         }
     }
 
+    &__type-text-item {
+        display: none;
+
+        &.active {
+            display: block;
+        }
+    }
+
     &__color {
         flex: 1 1 auto;
         max-width: 445px;
@@ -582,10 +590,20 @@
     &__color-preview {
         height: 340px;
         margin-bottom: 45px;
+        background-color: #fff;
 
         @media (max-width: $md4+px) {
             height: 240px;
             margin-bottom: 25px;
+        }
+
+        & img {
+            transition: all .6s ease;
+            opacity: 0;
+
+            &.active {
+                opacity: 1;
+            }
         }
     }
 

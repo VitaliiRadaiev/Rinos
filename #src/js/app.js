@@ -26,6 +26,7 @@ window.addEventListener('load', function () {
 	@@include('files/dynamic_adapt.js');
 	@@include('forms.js');
 	@@include('../common/header/header.js');
+	@@include('../common/popup/popup.js');
 	@@include('pages/home.js');
 	@@include('pages/product-detail.js');
 	@@include('../common/gallery/gallery.js');

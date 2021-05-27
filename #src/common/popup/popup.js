@@ -76,7 +76,7 @@ function bodyLock() {
 		}
 	}
 
-	body.style.paddingRight = lockPaddingValue;
+	//body.style.paddingRight = lockPaddingValue;
 	body.classList.add('lock');
 
 	unlock = false;
@@ -141,3 +141,53 @@ document.addEventListener('keydown', function(e) {
 		}
 	})();
 // === AND Polyfill ===
+
+
+
+
+
+
+
+let $popupGallery = document.querySelector('.popup-gallery');
+if($popupGallery) {
+	let dataThumbs = new Swiper($popupGallery.querySelector('.popup-gallery__thumbs'), {
+       // loop: true,
+		speed: 800,
+        spaceBetween: 10,
+        slidesPerView: 4,
+        freeMode: true,
+		observer: true,
+		observeParents: true,
+		observerSlideChildren: true,
+      });
+      let dataGallery = new Swiper($popupGallery.querySelector('.popup-gallery__images'), {
+        //loop: true,
+		speed: 800,
+        spaceBetween: 10,
+		observer: true,
+		observeParents: true,
+		observerSlideChildren: true,
+        navigation: {
+          nextEl:$popupGallery.querySelector('.popup-gallery__btn-next'),
+          prevEl: $popupGallery.querySelector('.popup-gallery__btn-prev'),
+        },
+        thumbs: {
+          swiper: dataThumbs,
+        },
+      });
+
+
+	  let $availableCcolours = document.querySelector('.available-colours');
+	  if($availableCcolours) {
+		  let $items = Array.from($availableCcolours.children);
+		  if($items.length) {
+			$items.forEach($item => {
+				let link = $item.querySelector('.available-colours__item');
+				link.addEventListener('click', () => {
+					dataGallery.slideTo($items.findIndex((item => item === $item)))
+				})
+			})
+		  }
+		  
+	  }
+}

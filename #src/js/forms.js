@@ -245,6 +245,9 @@ function select_actions(original, select) {
 				select.querySelector('.select__value').innerHTML = '<span>' + select_option_text + '</span>';
 				original.value = select_option_value;
 				select_option.style.display = 'none';
+
+				let event = new Event("change", {bubbles: true}); 
+				original.dispatchEvent(event);
 			}
 		});
 	}

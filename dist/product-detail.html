@@ -320,7 +320,7 @@
                     <h3 class="product-info__title title-3">Available colours</h3>
                     <ul class="available-colours">
                         <li>
-                            <a href="#" class="available-colours__item">
+                            <a href="#popupGallery" class="available-colours__item popup-link">
                                 <div class="available-colours__img">
                                     <img src="img/photo/color-1.jpg" alt="">
                                     <span class="plus"></span>
@@ -330,7 +330,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="available-colours__item">
+                            <a href="#popupGallery" class="available-colours__item popup-link">
                                 <div class="available-colours__img">
                                     <img src="img/photo/color-2.jpg" alt="">
                                     <span class="plus"></span>
@@ -340,7 +340,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="available-colours__item">
+                            <a href="#popupGallery" class="available-colours__item popup-link">
                                 <div class="available-colours__img">
                                     <img src="img/photo/color-3.jpg" alt="">
                                     <span class="plus"></span>
@@ -350,7 +350,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="available-colours__item">
+                            <a href="#popupGallery" class="available-colours__item popup-link">
                                 <div class="available-colours__img">
                                     <img src="img/photo/color-4.jpg" alt="">
                                     <span class="plus"></span>
@@ -360,7 +360,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="available-colours__item">
+                            <a href="#popupGallery" class="available-colours__item popup-link">
                                 <div class="available-colours__img">
                                     <img src="img/photo/color-5.jpg" alt="">
                                     <span class="plus"></span>
@@ -370,7 +370,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="available-colours__item">
+                            <a href="#popupGallery" class="available-colours__item popup-link">
                                 <div class="available-colours__img">
                                     <img src="img/photo/color-6.jpg" alt="">
                                     <span class="plus"></span>
@@ -380,7 +380,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="available-colours__item">
+                            <a href="#popupGallery" class="available-colours__item popup-link">
                                 <div class="available-colours__img">
                                     <img src="img/photo/color-7.jpg" alt="">
                                     <span class="plus"></span>
@@ -390,7 +390,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="available-colours__item">
+                            <a href="#popupGallery" class="available-colours__item popup-link">
                                 <div class="available-colours__img">
                                     <img src="img/photo/color-8.jpg" alt="">
                                     <span class="plus"></span>
@@ -400,7 +400,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="available-colours__item">
+                            <a href="#popupGallery" class="available-colours__item popup-link">
                                 <div class="available-colours__img">
                                     <img src="img/photo/color-9.jpg" alt="">
                                     <span class="plus"></span>
@@ -410,7 +410,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="available-colours__item">
+                            <a href="#popupGallery" class="available-colours__item popup-link">
                                 <div class="available-colours__img">
                                     <img src="img/photo/color-10.jpg" alt="">
                                     <span class="plus"></span>
@@ -582,96 +582,134 @@
                     <div class="floor__type">
                         <div class="select-wrap">
                             <div class="select-label">Floortype</div>
-                            <select name="" class="_select">
-                                <option value="" selected>Wood, herringbone</option>
-                                <option value="1">Vloer omschrijving 1</option>
-                                <option value="2">Vloer omschrijving 2</option>
-                                <option value="3">Vloer omschrijving 3</option>
-                                <option value="4">Vloer omschrijving 4</option>
-                                <option value="5">Vloer omschrijving 5</option>
-                                <option value="6">Vloer omschrijving 6</option>
-                                <option value="7">Vloer omschrijving 7</option>
-                                <option value="8">Vloer omschrijving 8</option>
-                                <option value="9">Vloer omschrijving 9</option>
-                                <option value="10">Vloer omschrijving 10</option>
-                                <option value="11">Vloer omschrijving 11</option>
+                            <select id='floortype' name="" class="_select">
+                                <option  value="img/photo/floor.jpg" selected>Wood, herringbone</option>
+                                <option  value="img/photo/floor2.jpg">Vloer omschrijving 1</option>
+                                <option  value="img/photo/floor3.jpg">Vloer omschrijving 2</option>
                             </select>
                         </div>
                         <div class="floor__type-text">
-                            <p><strong>Walnut Brown</strong></p>
-                            <p>MO21</p>
+                            <div data-tab="1" class="floor__type-text-item">
+                                <p><strong>Ash Grey</strong></p>
+                                <p>MO83</p>
+                            </div>
+                            <div data-tab="2" class="floor__type-text-item">
+                                <p><strong>Brick Red</strong></p>
+                                <p>MO92</p>
+                            </div>
+                            <div data-tab="3" class="floor__type-text-item">
+                                <p><strong>Charcoal Grey</strong></p>
+                                <p>MO51</p>
+                            </div>
+                            <div data-tab="4" class="floor__type-text-item">
+                                <p><strong>Concrete Grey</strong></p>
+                                <p>MO81</p>
+                            </div>
+                            <div data-tab="5" class="floor__type-text-item">
+                                <p><strong>Limestone Grey</strong></p>
+                                <p>MO11</p>
+                            </div>
+                            <div data-tab="6" class="floor__type-text-item">
+                                <p><strong>Maroon Red</strong></p>
+                                <p>MO91</p>
+                            </div>
+                            <div data-tab="7" class="floor__type-text-item">
+                                <p><strong>Pine Green</strong></p>
+                                <p>MO71</p>
+                            </div>
+                            <div data-tab="8" class="floor__type-text-item">
+                                <p><strong>Sandstone Ochre</strong></p>
+                                <p>MO31</p>
+                            </div>
+                            <div data-tab="9" class="floor__type-text-item">
+                                <p><strong>Slate Grey</strong></p>
+                                <p>MO82</p>
+                            </div>
+                            <div data-tab="10" class="floor__type-text-item">
+                                <p><strong>Walnut Brown</strong></p>
+                                <p>MO21</p>
+                            </div>
                         </div>
                     </div>
                     <div class="floor__color">
                         <div class="floor__color-preview ibg">
-                            <img src="img/photo/floor-color.jpg" alt="">
+                            <img data-tab="1" src="img/photo/color-1.jpg" alt="">
+                            <img data-tab="2" src="img/photo/color-2.jpg" alt="">
+                            <img data-tab="3" src="img/photo/color-3.jpg" alt="">
+                            <img data-tab="4" src="img/photo/color-4.jpg" alt="">
+                            <img data-tab="5" src="img/photo/color-5.jpg" alt="">
+                            <img data-tab="6" src="img/photo/color-6.jpg" alt="">
+                            <img data-tab="7" src="img/photo/color-7.jpg" alt="">
+                            <img data-tab="8" src="img/photo/color-8.jpg" alt="">
+                            <img data-tab="9" src="img/photo/color-9.jpg" alt="">
+                            <img data-tab="10" src="img/photo/floor-color.jpg" alt="">
                         </div>
                         <ul class="floor__color-list">
                             <li>
-                                <a href="#" class="floor__color-list-item">
+                                <a href="#" data-tab="1" class="floor__color-list-item">
                                     <span>
                                         <img src="img/photo/color-1.jpg" alt="">
                                     </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="floor__color-list-item">
+                                <a href="#" data-tab="2" class="floor__color-list-item">
                                     <span>
                                         <img src="img/photo/color-2.jpg" alt="">
                                     </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="floor__color-list-item">
+                                <a href="#" data-tab="3" class="floor__color-list-item">
                                     <span>
                                         <img src="img/photo/color-3.jpg" alt="">
                                     </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="floor__color-list-item">
+                                <a href="#" data-tab="4" class="floor__color-list-item">
                                     <span>
                                         <img src="img/photo/color-4.jpg" alt="">
                                     </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="floor__color-list-item">
+                                <a href="#" data-tab="5" class="floor__color-list-item">
                                     <span>
                                         <img src="img/photo/color-5.jpg" alt="">
                                     </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="floor__color-list-item">
+                                <a href="#" data-tab="6" class="floor__color-list-item">
                                     <span>
                                         <img src="img/photo/color-6.jpg" alt="">
                                     </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="floor__color-list-item">
+                                <a href="#" data-tab="7" class="floor__color-list-item">
                                     <span>
                                         <img src="img/photo/color-7.jpg" alt="">
                                     </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="floor__color-list-item">
+                                <a href="#" data-tab="8" class="floor__color-list-item">
                                     <span>
                                         <img src="img/photo/color-8.jpg" alt="">
                                     </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="floor__color-list-item">
+                                <a href="#" data-tab="9" class="floor__color-list-item">
                                     <span>
                                         <img src="img/photo/color-9.jpg" alt="">
                                     </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="floor__color-list-item active">
+                                <a href="#" data-tab="10" class="floor__color-list-item active">
                                     <span>
                                         <img src="img/photo/color-10.jpg" alt="">
                                     </span>
@@ -972,6 +1010,87 @@
     </div>
 </footer>
     <!-- == // FOOTER ================== -->
+    <div class="popup" id="popupGallery">
+	<div class="popup_body">
+		<div class="popup_content">
+			<div class="popup_close close-popup"><span></span></div>
+
+			<div class="popup-gallery">
+				<div class="popup-gallery__images swiper-container">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<img src="img/photo/color-1.jpg" alt="">
+						</div>
+						<div class="swiper-slide">
+							<img src="img/photo/color-2.jpg" alt="">
+						</div>
+						<div class="swiper-slide">
+							<img src="img/photo/color-3.jpg" alt="">
+						</div>
+						<div class="swiper-slide">
+							<img src="img/photo/color-4.jpg" alt="">
+						</div>
+						<div class="swiper-slide">
+							<img src="img/photo/color-5.jpg" alt="">
+						</div>
+						<div class="swiper-slide">
+							<img src="img/photo/color-6.jpg" alt="">
+						</div>
+						<div class="swiper-slide">
+							<img src="img/photo/color-7.jpg" alt="">
+						</div>
+						<div class="swiper-slide">
+							<img src="img/photo/color-8.jpg" alt="">
+						</div>
+						<div class="swiper-slide">
+							<img src="img/photo/color-9.jpg" alt="">
+						</div>
+						<div class="swiper-slide">
+							<img src="img/photo/color-10.jpg" alt="">
+						</div>
+					</div>
+				</div>
+				<div class="popup-gallery__thumbs swiper-container">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<img src="img/photo/color-1.jpg" alt="">
+						</div>
+						<div class="swiper-slide">
+							<img src="img/photo/color-2.jpg" alt="">
+						</div>
+						<div class="swiper-slide">
+							<img src="img/photo/color-3.jpg" alt="">
+						</div>
+						<div class="swiper-slide">
+							<img src="img/photo/color-4.jpg" alt="">
+						</div>
+						<div class="swiper-slide">
+							<img src="img/photo/color-5.jpg" alt="">
+						</div>
+						<div class="swiper-slide">
+							<img src="img/photo/color-6.jpg" alt="">
+						</div>
+						<div class="swiper-slide">
+							<img src="img/photo/color-7.jpg" alt="">
+						</div>
+						<div class="swiper-slide">
+							<img src="img/photo/color-8.jpg" alt="">
+						</div>
+						<div class="swiper-slide">
+							<img src="img/photo/color-9.jpg" alt="">
+						</div>
+						<div class="swiper-slide">
+							<img src="img/photo/color-10.jpg" alt="">
+						</div>
+					</div>
+				</div>
+				<div class="popup-gallery__btn popup-gallery__btn-prev"></div>
+				<div class="popup-gallery__btn popup-gallery__btn-next"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
 
     
 <script src="js/vendors.js"></script>
