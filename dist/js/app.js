@@ -1268,6 +1268,14 @@ if($floortypeSelect) {
     $floortypeSelect.addEventListener('change', () => {
         if($floorImg) {
             $floorImg.src = $floortypeSelect.value;
+            $floorImg.parentElement.classList.add('_loading');
+
+            $floorImg.onload = () => {
+                $floorImg.parentElement.classList.remove('_loading');
+            }
+            $floorImg.onerror = () => {
+                $floorImg.parentElement.classList.remove('_loading');
+            }
         }
     })
 };

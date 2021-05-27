@@ -4771,6 +4771,25 @@ h1 {
 
 .floor__img {
   height: 460px;
+  position: relative;
+}
+
+.floor__img._loading:before {
+  position: absolute;
+  content: '';
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.7);
+  border-right: 4px solid transparent;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-animation: preloadBody 2s linear infinite;
+          animation: preloadBody 2s linear infinite;
 }
 
 .floor__text {
