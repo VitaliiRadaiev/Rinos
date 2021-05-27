@@ -1649,6 +1649,7 @@ button.swiper-pagination-bullet {
   position: absolute;
   bottom: 107px;
   left: 30px;
+  display: none;
 }
 
 .popup-gallery__btn:before {
@@ -5013,6 +5014,14 @@ h1 {
   }
 }
 
+@media (min-width: 610px) {
+  .popup-gallery__btn {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
 @media (min-width: 768px) {
   .header._is-scroll .header__body {
     min-height: 70px;
@@ -5990,6 +5999,10 @@ h1 {
     padding: 1.5rem;
   }
 
+  .popup_content {
+    padding: 70px 20px 70px;
+  }
+
   .title-1 {
     font-size: 46px;
   }
@@ -6380,43 +6393,22 @@ h1 {
   }
 }
 
-@media (max-width: 575px) {
-  .footer__column {
-    -webkit-box-flex: 0 !important;
-        -ms-flex: 0 1 100% !important;
-            flex: 0 1 100% !important;
-    padding-right: 0;
-    text-align: center;
+@media (max-width: 655px) {
+  .popup-gallery__btn {
+    left: 5px;
   }
 
-  .footer__logo {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .footer .social {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-
-  .footer__bottom {
-    display: block;
-    text-align: center;
-  }
-
-  .gallery__slider {
-    margin: 0 -15px 0 -5px;
-  }
-
-  .gallery__img {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 1 50%;
-            flex: 0 1 50%;
+  .popup-gallery__btn-next {
+    right: 5px;
+    left: auto;
   }
 }
 
 @media (max-width: 575.98px) {
+  .popup-gallery__images .swiper-slide {
+    height: 380px;
+  }
+
   .pagination {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
@@ -6486,6 +6478,42 @@ h1 {
   }
 
   .more-products__list > li {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 50%;
+            flex: 0 1 50%;
+  }
+}
+
+@media (max-width: 575px) {
+  .footer__column {
+    -webkit-box-flex: 0 !important;
+        -ms-flex: 0 1 100% !important;
+            flex: 0 1 100% !important;
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .footer__logo {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer .social {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+
+  .footer__bottom {
+    display: block;
+    text-align: center;
+  }
+
+  .gallery__slider {
+    margin: 0 -15px 0 -5px;
+  }
+
+  .gallery__img {
     -webkit-box-flex: 0;
         -ms-flex: 0 1 50%;
             flex: 0 1 50%;

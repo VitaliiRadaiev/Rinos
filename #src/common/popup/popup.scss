@@ -43,6 +43,10 @@
 		outline: 0;
 		text-align: center;
 		padding: 70px 100px 70px;
+
+		@media (max-width: $md3+px) {
+			padding: 70px 20px 70px;
+		}
 	}
 
 	&_close {
@@ -105,6 +109,10 @@
 			position: relative;
 			height: 500px;
 
+			@media (max-width: 575.98px) {
+				height: 380px;
+			}
+
 			& img {
 				position: absolute;
 				top: 0;
@@ -161,6 +169,16 @@
 		position: absolute;
 		bottom: 107px;
 		left: 30px;
+		display: none;
+
+		@media (max-width: 655px) {
+			left: 5px;
+		}
+
+		@media (min-width: 610px) {
+			display: flex;
+		}
+
 		@media (min-width: 992px) {
 			&:hover {
 				background-color: rgba(#000, 0.1);
@@ -186,5 +204,10 @@
 	&__btn-next {
 		right: 30px;
 		left: auto;
+
+		@media (max-width: 655px) {
+			right: 5px;
+			left: auto;
+		}
 	}
 }
