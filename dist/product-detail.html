@@ -9,7 +9,7 @@
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> -->
 	<!-- <link rel="shortcut icon" href="favicon.ico"> -->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -303,13 +303,26 @@
                 <img src="img/photo/gird-bg.png" alt="">
             </div>
             <div class="video-block__body container">
-                <video class="video-block__video" poster="img/photo/poster.jpg" crossorigin="anonymous" preload="auto">
+                <!-- HTML Video -->
+                <!-- <video class="video-block__video" poster="img/photo/poster.jpg" crossorigin="anonymous" preload="auto">
                     <source src="img/videoForTest.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
                 </video>
                 <div class="video-block__play-pause">
                     <span class="icon-play2"></span>
+                </div> -->
+
+
+                 <!-- YouTube Video -->
+                <div class="video-block__video" data-youtube-url="https://www.youtube.com/embed/A_HjMIjzyMU">
+                    <div class="video-block__video-poster ibg">
+                        <img src="img/photo/poster.jpg" alt="">
+                        <div class="video-block__play-pause">
+                            <span class="icon-play2"></span>
+                        </div>
+                    </div>
                 </div>
-                <!-- <iframe src="https://www.youtube.com/embed/A_HjMIjzyMU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+
+                
             </div>
 
         </section>
