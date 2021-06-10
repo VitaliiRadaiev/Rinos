@@ -103,44 +103,9 @@ body {
 		overflow: hidden;
 	}
 
-	&.is-load {
-		& ._preload-body {
-			opacity: 0;
-			visibility: hidden;
-
-			&:before {
-				display: none;
-			}
-		}
-	}
 
 }
 
-._preload-body {
-	background-color: #fff;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 999;
-	transition: all .6s ease .2s;
-
-	&:before {
-		position: absolute;
-		content: '';
-		z-index: 999;
-		top: 50%;
-		left: 50%;
-		height: 50px;
-		width: 50px;
-		border-radius: 50%;
-		border: 4px solid #6e6e6e;
-		border-right: 4px solid #fff;
-		transform: translate(-50%, -50%);
-		animation: preloadBody 2s linear infinite;
-	}
-}
 
 @keyframes preloadBody {
 	from {transform: translate(-50%, -50%) rotate(0);}
@@ -505,29 +470,31 @@ button.btn-default {
 }
 
 .textarea {
-	resize: none;
-	padding: 11px 13px;
-	color: var(--input-text-color, $textColor);
-	width: 100%;
-	background-color: var(--input-bg-color, rgba(220, 220, 221, 0.3));
-	border: 1px solid transparent;
-	transition: all .3s ease;
-	border-radius: 0;
-	height: 147px;
-
-	@media (min-width: 992px) {
-		&:hover {
+	&:not(span) {
+		resize: none;
+		padding: 11px 13px;
+		color: var(--input-text-color, $textColor);
+		width: 100%;
+		background-color: var(--input-bg-color, rgba(220, 220, 221, 0.3));
+		border: 1px solid transparent;
+		transition: all .3s ease;
+		border-radius: 0;
+		height: 147px;
+	
+		@media (min-width: 992px) {
+			&:hover {
+				border-color: var(--input-border-color, rgb(220, 220, 221));
+			}
+		}
+	
+		&::placeholder {
+			color: var(--input-placeholder-color, $textColor);
+		}
+	
+	
+		&:focus {
 			border-color: var(--input-border-color, rgb(220, 220, 221));
 		}
-	}
-
-	&::placeholder {
-		color: var(--input-placeholder-color, $textColor);
-	}
-
-
-	&:focus {
-		border-color: var(--input-border-color, rgb(220, 220, 221));
 	}
 }
 

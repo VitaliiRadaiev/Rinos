@@ -6,7 +6,7 @@ if ($promoHeader) {
         effect: 'fade',
         slidesPerView: 1,
         spaceBetween: 0,
-        speed: 800,
+        speed: 1600,
         touchRatio: 0,
         //simulateTouch: false,
         loop: true,
@@ -18,13 +18,13 @@ if ($promoHeader) {
 
     sliderContent = new Swiper($promoHeader.querySelector('.promo-header__body .swiper-container'), {
         autoplay: {
-            delay: 4000,
+            delay: 8000,
             disableOnInteraction: false,
         },
 
         slidesPerView: 1,
         spaceBetween: 0,
-        speed: 800,
+        speed: 1600,
         watchOverflow: true,
         loop: true,
         navigation: {
