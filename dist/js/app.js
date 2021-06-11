@@ -1090,17 +1090,22 @@ document.addEventListener('keydown', function(e) {
 
 let $popupGallery = document.querySelector('.popup-gallery');
 if($popupGallery) {
-	let dataThumbs = new Swiper($popupGallery.querySelector('.popup-gallery__thumbs'), {
+	let dataThumbs;
+	let dataGallery;
+
+	   dataThumbs = new Swiper($popupGallery.querySelector('.popup-gallery__thumbs'), {
        // loop: true,
 		speed: 800,
         spaceBetween: 10,
-        slidesPerView: 4,
-        freeMode: true,
+        slidesPerView: 1,
 		observer: true,
 		observeParents: true,
 		observerSlideChildren: true,
+		effect: 'fade',
+		touchRatio: 0,
       });
-      let dataGallery = new Swiper($popupGallery.querySelector('.popup-gallery__images'), {
+
+       dataGallery = new Swiper($popupGallery.querySelector('.popup-gallery__images'), {
         //loop: true,
 		speed: 800,
         spaceBetween: 10,
@@ -1110,12 +1115,11 @@ if($popupGallery) {
         navigation: {
           nextEl:$popupGallery.querySelector('.popup-gallery__btn-next'),
           prevEl: $popupGallery.querySelector('.popup-gallery__btn-prev'),
-        },
-        thumbs: {
-          swiper: dataThumbs,
-        },
+        }
       });
-
+	  console.log($popupGallery.querySelector('.popup-gallery__btn-next'));
+	  
+	  dataGallery.controller.control = dataThumbs;
 
 	  let $availableCcolours = document.querySelector('.available-colours');
 	  if($availableCcolours) {
@@ -1130,7 +1134,7 @@ if($popupGallery) {
 		  }
 		  
 	  }
-};
+} ;
 	let $promoHeader = document.querySelector('.promo-header');
 if ($promoHeader) {
     let sliderImage, sliderContent;
