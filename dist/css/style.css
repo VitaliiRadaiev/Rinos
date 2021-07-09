@@ -1897,9 +1897,6 @@ textarea {
 
 .drop-down__list {
   display: none;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
 }
 
 @-webkit-keyframes dropDownList {
@@ -4099,11 +4096,23 @@ h1 {
   margin-bottom: 10px;
 }
 
+.product-card__img img:not(.product-card__img-hover) {
+  z-index: 1;
+}
+
+.product-card__img-hover {
+  z-index: 2;
+  -webkit-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+  opacity: 0;
+}
+
 .product-card__label-wrap {
   position: absolute;
   top: 20px;
   right: -10px;
-  z-index: 2;
+  z-index: 3;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5214,6 +5223,9 @@ h1 {
   }
 
   .drop-down__list {
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
     min-width: calc(100% + 20px);
     position: absolute;
     left: -10px;
@@ -5542,6 +5554,10 @@ h1 {
     position: absolute;
     right: 4px;
     bottom: 16px;
+  }
+
+  .product-card:hover .product-card__img-hover {
+    opacity: 1;
   }
 
   .product-card.product-card_small .product-card__head:hover {

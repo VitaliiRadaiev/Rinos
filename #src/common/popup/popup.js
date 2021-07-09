@@ -177,8 +177,6 @@ if($popupGallery) {
           prevEl: $popupGallery.querySelector('.popup-gallery__btn-prev'),
         }
       });
-	  console.log($popupGallery.querySelector('.popup-gallery__btn-next'));
-	  
 	  dataGallery.controller.control = dataThumbs;
 
 	  let $availableCcolours = document.querySelector('.available-colours');

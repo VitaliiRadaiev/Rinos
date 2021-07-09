@@ -234,9 +234,8 @@ textarea {
 
 	&__list {
 		display: none;
-		transition: all 0.3s ease;
-
 		@media (min-width: 992px) {
+			transition: all 0.3s ease;
 			min-width: calc(100% + 20px);
 			position: absolute;
 			left: -10px;

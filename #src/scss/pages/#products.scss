@@ -167,6 +167,14 @@
     flex-direction: column;
     color: $textColor;
 
+    @media (min-width: 992px) {
+        &:hover {
+            & .product-card__img-hover {
+                opacity: 1;
+            }
+        }
+    }
+
     &.product-card_small {
         & .product-card__head {
             position: relative;
@@ -221,13 +229,23 @@
         height: 0;
         padding-bottom: 84.84%;
         margin-bottom: 10px;
+
+        & img:not(.product-card__img-hover) {
+            z-index: 1;
+        }
+    }
+
+    &__img-hover {
+        z-index: 2;
+        transition: all .3s ease;
+        opacity: 0;
     }
 
     &__label-wrap {
         position: absolute;
         top: 20px;
         right: -10px;
-        z-index: 2;
+        z-index: 3;
         display: flex;
         flex-direction: column;
         align-items: flex-end;
