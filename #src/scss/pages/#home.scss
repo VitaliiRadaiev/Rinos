@@ -117,6 +117,10 @@
             .icon-chevron-right {
                 transform:  translateY(-50%) translateX(10px);
             }
+
+            .card__hover-img {
+                opacity: 1;
+            }
         }
     }
 
@@ -128,13 +132,24 @@
 		&__img {
             height: 0;
             padding-bottom: 68%;
+
+            & img:not(.card__hover-img) {
+                z-index: 1;
+            }
 		}
+
+        &__hover-img {
+            z-index: 2;
+            transition: all .3s ease;
+            opacity: 0;
+        }
 
 		&__title {
             position: absolute;
             left: 20px;
             bottom: 23px;
             right: 20px;
+            z-index: 3;
 		}
 
 		&__text {

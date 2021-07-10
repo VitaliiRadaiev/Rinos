@@ -3433,11 +3433,24 @@ h1 {
   padding-bottom: 68%;
 }
 
+.card__img img:not(.card__hover-img) {
+  z-index: 1;
+}
+
+.card__hover-img {
+  z-index: 2;
+  -webkit-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+  opacity: 0;
+}
+
 .card__title {
   position: absolute;
   left: 20px;
   bottom: 23px;
   right: 20px;
+  z-index: 3;
 }
 
 .card__text {
@@ -5515,6 +5528,10 @@ h1 {
     -webkit-transform: translateY(-50%) translateX(10px);
         -ms-transform: translateY(-50%) translateX(10px);
             transform: translateY(-50%) translateX(10px);
+  }
+
+  .card:hover .card__hover-img {
+    opacity: 1;
   }
 
   .contact__column-1 {
