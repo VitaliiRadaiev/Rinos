@@ -1352,9 +1352,12 @@ if($tableTabs) {
     let $tabs = $tableTabs.querySelectorAll('td');
     let $tabsContent = document.querySelectorAll('.tabs-content');
     if($tabs.length) {
-        let $tabActiveId = $tableTabs.querySelector('td.active').dataset.tab;
-        if($tabActiveId) {
-            showTabContent($tabActiveId);
+        let $tabActive = $tableTabs.querySelector('td.active');
+        if($tabActive) {
+            let id = $tabActive.dataset.tab;
+            if(id) {
+                showTabContent(id);
+            }
         }
 
 

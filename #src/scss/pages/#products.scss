@@ -470,6 +470,14 @@
         font-size: 14px;
         line-height: 24px;
     }
+
+    &__img {
+        height: 460px;
+
+        @media (max-width: $md3+px) {
+            height: 400px;
+        }
+    }
 }
 
 

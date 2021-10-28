@@ -173,7 +173,7 @@
     &__logo {
         margin-right: 20px;
         width: 100%;
-        max-width: 254px;
+        max-width: 230px;
         transition: all .4s ease;
 
         @media (max-width: $md3+px) {
@@ -352,10 +352,11 @@
 
     &__link {
         color: #2a3756;
-        font-size: 20px;
+        font-size: 18px;
         font-weight: 600;
         line-height: 1.1em;
         transition: all .3s ease;
+        white-space: nowrap;
         &:before {
             color: $mainColor2;
             font-size: 16px;

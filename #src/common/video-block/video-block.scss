@@ -1,14 +1,11 @@
 .video-block {
 	position: relative;
 	padding: 79px 0 96px;
-	margin-bottom: 112px;
-
+	
 	@media (max-width: $md2+px) {
-		margin-bottom: 90px;
 		padding: 60px 0 90px;
 	}
 	@media (max-width: $md3+px) {
-		margin-bottom: 50px;
 		padding: 50px 0 50px;
 	}
 
