@@ -363,6 +363,19 @@
     }
 
     &.where-to-use_v2 {
+        &.revers {
+            @media (min-width: 992px) {
+                & .where-to-use__content {
+                    flex-direction: row-reverse;
+                }
+
+                & .where-to-use__head {
+                    padding-right: 0;
+                    padding-left: 7%;
+                }
+            }
+        }
+
         & .where-to-use__content {
             max-width: 1140px;
 
@@ -378,7 +391,7 @@
             @media (min-width: 992px) {
                 padding-right: 30px;
                 padding-top: 43px;
-                padding-left: 10px;
+                padding-left: 0px;
             }
 
             @media (max-width: $md3+px) {

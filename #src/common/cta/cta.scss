@@ -5,6 +5,24 @@
     flex-direction: column;
     justify-content: center;
     min-height: 149px;
+    margin-bottom: 100px;
+
+    & + .video-block {
+        margin-top: -100px;
+    }
+
+    & + .product-info {
+        padding-top: 0;
+    }
+
+    @media (max-width: $md3+px) {
+        margin-bottom: 50px;
+
+        & + .video-block {
+            margin-top: -50px;
+        }
+    }
+
 
     &.cta_light {
         background-color: $bg;
