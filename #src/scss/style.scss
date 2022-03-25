@@ -83,6 +83,12 @@ html,
 body {
 	min-width: $minwidth;
 	margin: 0 auto;
+
+	&._lock {
+		height: 100%;
+		min-height: auto;
+		overflow: hidden;
+	}
 }
 
 body {
@@ -98,11 +104,6 @@ body {
 	display: flex;
 	flex-direction: column;
 	position: relative;
-
-	&._lock {
-		overflow: hidden;
-	}
-
 
 }
 
@@ -584,8 +585,38 @@ button.btn-default {
 	line-height: 1.5em;
 
 	& h1 {
+		font-size: 62px;
+		font-weight: 700;
+		line-height: 1.2em;
+		color: $mainColor2;
+		margin-bottom: 0.6666em;
+		margin-top: 1em;
+
+		@media (max-width: $md2+px) {
+			font-size: 56px;
+		}
+		@media (max-width: $md3+px) {
+			font-size: 46px;
+		}
+		@media (max-width: $md4+px) {
+			font-size: 32px;
+		}
 	}
 	& h2 {
+		font-size: 48px;
+		font-weight: 300;
+		line-height: 1.0416em;
+		margin-bottom: 0.6666em;
+	
+		@media (max-width: $md2+px) {
+			font-size: 40px;
+		}
+		@media (max-width: $md3+px) {
+			font-size: 36px;
+		}
+		@media (max-width: $md4+px) {
+			font-size: 30px;
+		}
 	}
 	& h3 {
 		font-size: 30px;
@@ -616,7 +647,7 @@ button.btn-default {
 	& p {
 		margin-bottom: 1.55em;
 
-		& ~ h4 {
+		& ~ h2, & ~ h3, & ~ h4, & ~ h6 {
 			margin-top: 1.45em;
 		}
 
@@ -642,12 +673,28 @@ button.btn-default {
 				background-color: $mainColor2;
 			}
 		}
+
+		& ~ h2, & ~ h3, & ~ h4, & ~ h6 {
+			margin-top: 1.45em;
+		}
+
+		& ~ h5 {
+			margin-top: 1.9em;
+		}
 	}
 
 	& ol {
 		padding-left: 32.5px;
 		& > li {
 			list-style-position: inside;
+		}
+
+		& ~ h2, & ~ h3, & ~ h4, & ~ h6 {
+			margin-top: 1.45em;
+		}
+
+		& ~ h5 {
+			margin-top: 1.9em;
 		}
 	}
 
@@ -656,6 +703,14 @@ button.btn-default {
 		background-color: $bg;
 		padding: 10px;
 		margin-bottom: 25px;
+
+		& ~ h2, & ~ h3, & ~ h4, & ~ h6 {
+			margin-top: 1.45em;
+		}
+
+		& ~ h5 {
+			margin-top: 1.9em;
+		}
 
 		&.float-right {
 			display: inline-block;
@@ -706,6 +761,7 @@ button.btn-default {
 	& a {
 		transition: all 0.3s ease;
 		color: $mainColor;
+		font-weight: bold;
 
 		@media (min-width: 992px) {
 			&:hover {
@@ -713,12 +769,17 @@ button.btn-default {
 			}
 		}
 	}
+
+	& img {
+		width: 100%;
+		height: auto;
+	}
 }
 // === and TEXT CONTETN BLOCK ========================================================================
 
 // ==== BLOCKS =====================================================
-@import "../common/header/#header";
-@import "../common/footer/#footer";
+@import "../common/header/header";
+@import "../common/footer/footer";
 @import "../common/checkbox/checkbox";
 @import "../common/gallery/gallery";
 @import "../common/cta/cta";
@@ -731,11 +792,12 @@ button.btn-default {
 
 // ==== PAGES =====================================================
 
-@import "pages/#home";
-@import "pages/#contact";
-@import "pages/#downloads";
-@import "pages/#article";
-@import "pages/#news";
-@import "pages/#products";
-@import "pages/#product-detail";
+@import "pages/home";
+@import "pages/contact";
+@import "pages/downloads";
+@import "pages/article";
+@import "pages/news";
+@import "pages/products";
+@import "pages/product-detail";
 // ==== AND PAGES =====================================================
+

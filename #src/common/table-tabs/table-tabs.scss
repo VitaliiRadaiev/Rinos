@@ -25,8 +25,8 @@
     & td {
         height: 1.9em;
         cursor: pointer;
-        word-break: break-word;
-        hyphens: auto;
+        // word-break: break-word;
+        // hyphens: auto;
         @media (min-width: 992px) {
             &:not(.active) {
                 &:hover {

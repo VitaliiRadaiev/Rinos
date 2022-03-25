@@ -26,6 +26,16 @@
         color: #fff;
         min-width: 0;
 
+        &._one {
+            & .promo-header__btn  {
+                display: none;
+            }
+
+            & .swiper-pagination {
+                display: none;
+            }
+        }
+
         & .swiper-container {
             padding: 0;
 
@@ -50,7 +60,7 @@
     }
 
     &__title {
-        max-width: 8.4677em;
+        max-width: 13.4677em;
         margin-left: 6px;
     }
 

@@ -4,7 +4,7 @@ let isMobile = { Android: function () { return navigator.userAgent.match(/Androi
 
 
 window.addEventListener('load', function () {
-	
+
 	document.body.classList.add('is-load');
 
 	//==== ADD PADDING-TOP ================================
@@ -12,15 +12,51 @@ window.addEventListener('load', function () {
 		let wrapper = document.querySelector('._padding-top');
 		if (wrapper) {
 			let header = document.querySelector('.header');
-			if(header) {
+			if (header) {
 				const setPedding = () => wrapper.style.paddingTop = header.clientHeight + 'px';
 				setPedding();
 				window.addEventListener('resize', setPedding);
 			}
-			
+
 		}
 	}
 	//==== AND ADD PADDING-TOP ================================
+
+	(function slowAnchor() {
+
+		const getElement = () => {
+			let el = document.querySelector(window.location.hash ? window.location.hash : null);
+
+			const findeParent = (el) => {
+				if(el.parentElement.nodeName === "MAIN") {
+					return el;
+				} else {
+					return findeParent(el.parentElement);
+				}
+			}
+
+			if(el) {
+				return findeParent(el);
+			}
+		}
+
+		let el = getElement();
+
+
+		if (el) {
+			if(document.documentElement.clientWidth > 767.98) {
+				window.scrollTo({
+					top: el.offsetTop - 120,
+					behavior: 'smooth'
+				})
+			} else {
+				window.scrollTo({
+					top: el.offsetTop - 70,
+					behavior: 'smooth'
+				})
+			}
+		}
+	})()
 
 	//SlideToggle
 let _slideUp = (target, duration = 500) => {
@@ -874,29 +910,43 @@ if($header) {
     let $headerBody = document.querySelector('.header__body');
     let headerBodyHeight = $headerBody.clientHeight;
 
+    const setMenuHeight = () => {
+        if(document.documentElement.clientWidth < 992) {
+            $menu.style.height = document.documentElement.clientHeight + 'px';
+        }
+    }
+
+    setMenuHeight();
+
+    window.addEventListener('resize', setMenuHeight);
+
     window.addEventListener('scroll', () => {
         $header.classList.toggle('_is-scroll', window.pageYOffset > 50);
-        headerBodyHeight = $headerBody.clientHeight;
+       // headerBodyHeight = $headerBody.clientHeight;
     })
 
     $burger.addEventListener('click', () => {
         $menu.classList.add('_open');
         $body.classList.add('_lock');
+        document.documentElement.classList.add('_lock');
     })
     $menuClose.addEventListener('click', () => {
         $menu.classList.remove('_open');
         $body.classList.remove('_lock');
+        document.documentElement.classList.remove('_lock');
     })
 
     $menuList.forEach(item => {
         let dropList = item.querySelector('.drop-down__list');
-        
+        let title = item.querySelector('.drop-down__title');
+        let links = item.querySelectorAll('.drop-down__link');
+
         if(dropList) {
             item.addEventListener('mouseenter', () => {
                 if(document.documentElement.clientWidth >= 992) {
                     if(!item.classList.contains('_open')) {
                         item.classList.add('_open');
-                        _slideDown(dropList, 400);
+                        _slideDown(dropList, 210);
                         $headerBody.style.minHeight = headerBodyHeight + dropList.scrollHeight + 20 + 'px';
                     } 
                 }
@@ -904,18 +954,88 @@ if($header) {
             item.addEventListener('mouseleave', () => {
                 if(document.documentElement.clientWidth >= 992) {
                     item.classList.remove('_open');
-                    _slideUp(dropList, 300);
+                    _slideUp(dropList, 200);
                     $headerBody.style.minHeight = headerBodyHeight + 'px';
                     $headerBody.removeAttribute('style');
                 }
             })
 
-            item.addEventListener('click', (e) => {
+            title.addEventListener('click', (e) => {
                 if(document.documentElement.clientWidth < 992) {
                     e.preventDefault();
                     _slideToggle(dropList);
                     item.classList.toggle('_is-open');
                 }
+            })
+        }
+
+        if(links.length) {
+            links.forEach(link => {
+                let id = null;
+                let home = false;
+                let currentPage = false;
+                let regExp = new RegExp(window.location.pathname);
+
+                if(link.href.match(/(#\w+)$/)) {
+                    id = link.href.match(/(#\w+)$/)[0]
+                }
+
+
+                if(window.location.pathname === '/' || window.location.pathname === '/nl/' || window.location.pathname === '/de/') {
+                    home = true;
+                }
+
+                if(regExp.test(link.href)) {
+                    currentPage = true;
+                }
+
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    $menu.classList.remove('_open');
+                    $body.classList.remove('_lock');
+
+                    if(home) {
+                        window.location.href = link.href;
+                        return;
+                    }
+
+                    if(currentPage) {
+                        const getElement = (id) => {
+                            let el = document.querySelector(id);
+
+                            const findeParent = (el) => {
+                                if(el.parentElement.nodeName === "MAIN") {
+                                    return el;
+                                } else {
+                                    return findeParent(el.parentElement);
+                                }
+                            }
+
+                            if(el) {
+                                return findeParent(el);
+                            }
+                        }
+
+                        let el = getElement(id);
+                        if (el) {
+                            if(document.documentElement.clientWidth > 767.98) {
+                                window.scrollTo({
+                                    top: el.offsetTop - 120,
+                                    behavior: 'smooth'
+                                })
+                            } else {
+                                window.scrollTo({
+                                    top: el.offsetTop - 70,
+                                    behavior: 'smooth'
+                                })
+                            }
+                        }
+                    } else {
+                        window.location.href = link.href;
+                        return false;
+                    }
+
+                })
             })
         }
     })
@@ -1136,6 +1256,12 @@ if($popupGallery) {
 	let $promoHeader = document.querySelector('.promo-header');
 if ($promoHeader) {
     let sliderImage, sliderContent;
+    let length = $promoHeader.querySelector('.promo-header__body .swiper-wrapper').children.length;
+   
+    if(length === 1) {
+        $promoHeader.querySelector('.promo-header__body').classList.add('_one');
+    }
+    
 
     sliderImage = new Swiper($promoHeader.querySelector('.promo-header__images'), {
         effect: 'fade',
@@ -1143,6 +1269,8 @@ if ($promoHeader) {
         spaceBetween: 0,
         speed: 1600,
         touchRatio: 0,
+        watchOverflow: true,
+        watchSlidesVisibility: true,
         //simulateTouch: false,
         loop: true,
         //preloadImages: false,
@@ -1151,17 +1279,14 @@ if ($promoHeader) {
         },
     });
 
-    sliderContent = new Swiper($promoHeader.querySelector('.promo-header__body .swiper-container'), {
-        autoplay: {
-            delay: 8000,
-            disableOnInteraction: false,
-        },
-
+    let option = {
         slidesPerView: 1,
         spaceBetween: 0,
         speed: 1600,
         watchOverflow: true,
+        watchSlidesVisibility: true,
         loop: true,
+        touchRatio: 0,
         navigation: {
             nextEl: $promoHeader.querySelector('.promo-header__btn-next'),
             prevEl: $promoHeader.querySelector('.promo-header__btn-prev'),
@@ -1170,27 +1295,45 @@ if ($promoHeader) {
             el: $promoHeader.querySelector('.swiper-pagination'),
             clickable: true,
         },
-    });
+    }
+
+    if(length > 2) {
+        option = {
+            ...option,
+            autoplay: {
+                delay: 8000,
+                disableOnInteraction: false,
+            },
+            touchRatio: 1,
+        }
+    }
+
+    sliderContent = new Swiper($promoHeader.querySelector('.promo-header__body .swiper-container'),
+        option
+    );
 
     sliderContent.controller.control = sliderImage;
 };
 	let $specifications = document.querySelector('.specifications');
-if($specifications) {
-    let $table = $specifications.querySelector('.specifications__table');
-    let $btn =  $specifications.querySelector('.specifications__btn');
-    if($table) {
+if ($specifications) {
+    let $tables = $specifications.querySelectorAll('.specifications__table');
+    let $inner = $specifications.querySelector('.specifications__inner');
+    let $btn = $specifications.querySelector('.specifications__btn');
+    let $bottomText = $specifications.querySelector('.text-block');
+
+    if ($tables.length) {
         let height = 648;
-    
-        if(document.documentElement.clientWidth < 768) height = 448;
-    
-        if($table.clientHeight < height) {
+
+        if (document.documentElement.clientWidth < 768) height = 448;
+
+        if ($inner.scrollHeight < height) {
             $specifications.classList.add('_table-is-small');
         } else {
             $btn.addEventListener('click', (e) => {
                 e.preventDefault();
-                if(!$specifications.classList.contains('_table-open')) {
+                if (!$specifications.classList.contains('_table-open')) {
                     $specifications.classList.add('_table-open');
-                    $specifications.style.height = $table.clientHeight + 40 + 'px';
+                    $specifications.style.height = $inner.scrollHeight + 40 + 'px';
                     $btn.innerText = 'Close specifications';
                 } else {
                     $specifications.classList.remove('_table-open');
@@ -1198,15 +1341,15 @@ if($specifications) {
                     $btn.innerText = 'Expand specifications';
                 }
             })
-    
+
             window.addEventListener('resize', () => {
-                if($specifications.classList.contains('_table-open')) {
-                    $specifications.style.height = $table.clientHeight + 40 + 'px';
+                if ($specifications.classList.contains('_table-open')) {
+                    $specifications.style.height = $inner.scrollHeight + 40 + 'px';
                 }
             })
         }
     } else {
-        if($btn) {
+        if ($btn) {
             $btn.style.display = "none";
         }
     }
@@ -1216,14 +1359,19 @@ if($specifications) {
 
 
 let $floorColor = document.querySelector('.floor__color');
-if($floorColor) {
+if ($floorColor) {
     // init == 
     let activeId = document.querySelector('.floor__color-list-item.active').dataset.tab;
-    if(activeId) {
+    if (activeId) {
         let img = document.querySelector(`.floor__color-preview img[data-tab="${activeId}"]`);
         let text = document.querySelector(`.floor__type-text-item[data-tab="${activeId}"]`);
-        img.classList.add('active');
-        text.classList.add('active');
+
+        if (img) {
+            img.classList.add('active');
+        }
+        if (text) {
+            text.classList.add('active');
+        }
     }
 
     // handler ===
@@ -1231,23 +1379,28 @@ if($floorColor) {
     let texts = document.querySelectorAll('.floor__type-text-item[data-tab]')
     let triggers = document.querySelectorAll('.floor__color-list-item[data-tab]');
 
-    if(triggers.length && images.length) {
+    if (triggers.length && images.length) {
         triggers.forEach(item => {
             let id = item.dataset.tab;
+            if (!id) return;
+
             let img = document.querySelector(`.floor__color-preview img[data-tab="${id}"]`)
             let text = document.querySelector(`.floor__type-text-item[data-tab="${id}"]`)
+
+            if(img && text) {
+                
             item.addEventListener('click', (e) => {
                 e.preventDefault();
 
                 item.classList.add('active');
 
                 triggers.forEach(i => {
-                    if(i === item) return;
+                    if (i === item) return;
                     i.classList.remove('active');
                 })
 
                 images.forEach(i => {
-                    if(i === img) {
+                    if (i === img) {
                         i.classList.add('active')
                     } else {
                         i.classList.remove('active')
@@ -1255,13 +1408,14 @@ if($floorColor) {
                 })
 
                 texts.forEach(i => {
-                    if(i === text) {
+                    if (i === text) {
                         i.classList.add('active')
                     } else {
                         i.classList.remove('active')
                     }
                 })
             })
+            }
         })
     }
 }
@@ -1271,10 +1425,10 @@ if($floorColor) {
 
 
 let $floortypeSelect = document.querySelector('#floortype');
-if($floortypeSelect) {
+if ($floortypeSelect) {
     let $floorImg = document.querySelector('.floor__img img');
     $floortypeSelect.addEventListener('change', () => {
-        if($floorImg) {
+        if ($floorImg) {
             $floorImg.src = $floortypeSelect.value;
             $floorImg.parentElement.classList.add('_loading');
 
@@ -1293,7 +1447,7 @@ if(gallerys.length) {
     gallerys.forEach(gallery => {
         let dataSlider = new Swiper(gallery.querySelector('.gallery__slider'), {
             autoplay: {
-                delay: 4000,
+                delay: 8000,
                 disableOnInteraction: false,
             },
             slidesPerView: 1,
@@ -1449,11 +1603,11 @@ if($tableTabs) {
 }
 
 cardVideoHandler();;
-	
+
 });
 
-window.addEventListener('DOMContentLoaded', function() {
-	if(isMobile) {
+window.addEventListener('DOMContentLoaded', function () {
+	if (isMobile) {
 		document.body.classList.add('_is-mobile');
 	}
 

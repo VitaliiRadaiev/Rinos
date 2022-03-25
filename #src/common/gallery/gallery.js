@@ -4,7 +4,7 @@ if(gallerys.length) {
     gallerys.forEach(gallery => {
         let dataSlider = new Swiper(gallery.querySelector('.gallery__slider'), {
             autoplay: {
-                delay: 4000,
+                delay: 8000,
                 disableOnInteraction: false,
             },
             slidesPerView: 1,

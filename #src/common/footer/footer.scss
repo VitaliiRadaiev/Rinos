@@ -211,6 +211,7 @@
 
 .form-footer {
     display: flex;
+    flex-wrap: wrap;
     padding: 35px 0 35px;
 
     @media (max-width: $md3+px) {
@@ -233,7 +234,7 @@
                 flex: 1 1 auto;
                 margin-right: 30px;
             }
-            &:nth-child(4) {
+            &.submit-wrap {
                 flex: 0 0 116px;
             }
         }
@@ -244,7 +245,7 @@
                 margin-bottom: 10px;
             }
 
-            &:nth-child(4) {
+            &.submit-wrap {
                 display: flex;
                 justify-content: center;
             }
@@ -282,6 +283,25 @@
 
             @media (max-width: $md3+px) {
                 min-width: 200px;
+            }
+        }
+    }
+
+    & #mce-responses {
+        order: 1;
+        flex: 0 1 100%;
+        padding-top: 15px;
+        text-align: center;
+        line-height: 1.2em;
+
+        & a {
+            color: #fff;
+            transition: all .3s ease;
+
+            @media (min-width: 992px) {
+                &:hover {
+                    color: #ff8400;
+                }
             }
         }
     }

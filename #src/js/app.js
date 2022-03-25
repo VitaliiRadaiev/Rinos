@@ -4,7 +4,7 @@ let isMobile = { Android: function () { return navigator.userAgent.match(/Androi
 
 
 window.addEventListener('load', function () {
-	
+
 	document.body.classList.add('is-load');
 
 	//==== ADD PADDING-TOP ================================
@@ -12,15 +12,51 @@ window.addEventListener('load', function () {
 		let wrapper = document.querySelector('._padding-top');
 		if (wrapper) {
 			let header = document.querySelector('.header');
-			if(header) {
+			if (header) {
 				const setPedding = () => wrapper.style.paddingTop = header.clientHeight + 'px';
 				setPedding();
 				window.addEventListener('resize', setPedding);
 			}
-			
+
 		}
 	}
 	//==== AND ADD PADDING-TOP ================================
+
+	(function slowAnchor() {
+
+		const getElement = () => {
+			let el = document.querySelector(window.location.hash ? window.location.hash : null);
+
+			const findeParent = (el) => {
+				if(el.parentElement.nodeName === "MAIN") {
+					return el;
+				} else {
+					return findeParent(el.parentElement);
+				}
+			}
+
+			if(el) {
+				return findeParent(el);
+			}
+		}
+
+		let el = getElement();
+
+
+		if (el) {
+			if(document.documentElement.clientWidth > 767.98) {
+				window.scrollTo({
+					top: el.offsetTop - 120,
+					behavior: 'smooth'
+				})
+			} else {
+				window.scrollTo({
+					top: el.offsetTop - 70,
+					behavior: 'smooth'
+				})
+			}
+		}
+	})()
 
 	@@include('_function.js');
 	@@include('files/dynamic_adapt.js');
@@ -34,11 +70,11 @@ window.addEventListener('load', function () {
 	@@include('../common/checkbox/checkbox.js');
 	@@include('../common/table-tabs/table-tabs.js');
 	@@include('../common/video-block/video-block.js');
-	
+
 });
 
-window.addEventListener('DOMContentLoaded', function() {
-	if(isMobile) {
+window.addEventListener('DOMContentLoaded', function () {
+	if (isMobile) {
 		document.body.classList.add('_is-mobile');
 	}
 
