@@ -3285,6 +3285,7 @@ h1 {
   color: #fff;
   border-collapse: collapse;
   font-size: 10px;
+  width: 100%;
 }
 
 .table-tabs th {
