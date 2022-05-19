@@ -1,0 +1,276 @@
+.history {
+    margin-bottom: 180px;
+    position: relative;
+    z-index: 30;
+    
+    & + * {
+        position: relative;
+        z-index: 2;
+    }
+    @media (max-width: $md3+px) {
+        margin-bottom: 65px;
+    }
+
+    &__body {
+        display: flex;
+        min-width: 0;
+
+        @media (max-width: $md3+px) {
+            display: block;
+        }
+    }
+    &__left {
+        flex: 0 0 100px;
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+
+        @media (max-width: $md3+px) {
+            display: none;
+        }
+
+        &:before {
+            position: absolute;
+            content: '';
+            top: -10px;
+            right: 0;
+            height: calc(100% + 10px);
+            width: 100vw;
+            background-color: #fff;
+        }
+
+        & .line-1 {
+            width: 16px;
+            height: 2px;
+            background-color: rgba(#2a3756, 0.3);
+            margin-right: 7px;
+            position: relative;
+            z-index: 2;
+            margin-left: auto;
+            border-radius: 10px;
+        }
+
+        & .line-2 {
+            width: 28px;
+            height: 2px;
+            background-color: rgba(#2a3756, 0.6);
+            margin-right: 7px;
+            position: relative;
+            z-index: 2;
+            border-radius: 10px;
+        }
+    }
+
+    &__right {
+        flex: 0 0 100px;
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+
+        @media (max-width: $md3+px) {
+            display: none;
+        }
+        &:before {
+            position: absolute;
+            content: '';
+            top: -10px;
+            left: 0;
+            height: calc(100% + 10px);
+            width: 100vw;
+            background-color: #fff;
+        }
+
+        & .line-1 {
+            width: 16px;
+            height: 2px;
+            background-color: rgba(#2a3756, 0.3);
+            margin-left: 7px;
+            position: relative;
+            z-index: 2;
+            margin-right: auto;
+            border-radius: 10px;
+        }
+
+        & .line-2 {
+            width: 28px;
+            height: 2px;
+            background-color: rgba(#2a3756, 0.6);
+            margin-left: 7px;
+            position: relative;
+            z-index: 2;
+            border-radius: 10px;
+        }
+    }
+
+    &__btn {
+        color: $mainColor;
+        cursor: pointer;
+        font-size: 28px;
+        transition: all .3s ease;
+        position: relative;
+        z-index: 2;
+        flex: 0 0 auto;
+
+        @media (min-width: 992px) {
+            &:hover {
+                color: $mainColor2;
+            }
+        }
+
+        &.prev {
+            margin-right: 10px;
+            &:before {
+                font-family: 'icomoon';
+                content: "\f0a8";
+            }
+        }
+
+        &.next {
+            margin-left: 10px;
+            &:before {
+                font-family: 'icomoon';
+                content: "\f0a9";
+            }
+        }
+    }
+
+    &__slider {
+        flex: 1 1 auto;
+        min-width: 0;
+        overflow: visible;
+        position: relative;
+        z-index: 1;
+
+        @media (max-width: $md3+px) {
+            width: auto;
+            margin: 0 -15px 20px;
+        }
+
+        &:before {
+            position: absolute;
+            content: '';
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            border-radius: 10px;
+            height: 2px;
+            background-color: #2a3756;
+        }
+
+        & .swiper-slide {
+            width: auto;
+
+            &.swiper-slide-active {
+                & .history__year {
+                    font-size: 20px;
+                    font-weight: 700;
+                    bottom: 50px;
+                }
+
+                & .history__dot {
+                    height: 20px;
+                    width: 20px;
+                }
+
+                & .history__text {
+                    pointer-events: auto;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    &__item {
+        width: 104px;
+        position: relative;
+        height: 60px;
+        cursor: pointer;
+
+        @media (max-width: $md3+px) {
+            width: 90px;
+        }
+
+        @media (min-width: 992px) {
+            &:hover {
+                & .history__dot {
+                    height: 20px;
+                    width: 20px;
+                }
+
+                & .history__year {
+                    bottom: 50px;
+                }
+            }
+        }
+    }
+
+    &__year {
+        transition: all .3s ease;
+        font-size: 16px;
+        line-height: 1em;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 48px;
+        position: absolute;
+        color: $mainColor2;
+    }
+
+    &__dot {
+        position: absolute;
+        height: 16px;
+        width: 16px;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        background-color: $mainColor2;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        transition: all .3s ease;
+        z-index: 4;
+    }
+
+    &__text {
+        position: absolute;
+        top: calc(50% + 2px);
+        left: calc(50% - 1px);
+        background-color: #fff;
+        padding: 30px 15px 10px;
+        width: 350px;
+        transition: all .3s ease;
+        opacity: 0;
+        pointer-events: none;
+
+        @media (max-width: $md3+px) {
+            display: none;
+        }
+
+        &:before {
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 2px;
+            background-color: $mainColor2;
+        }
+
+        & > *:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__mob-text {
+        & > *:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__slider-mob-text {
+        @media (min-width: 768px) {
+            display: none;
+        }
+    }
+}

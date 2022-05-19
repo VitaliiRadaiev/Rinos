@@ -104,7 +104,10 @@ body {
 	display: flex;
 	flex-direction: column;
 	position: relative;
+}
 
+.wrapper {
+	overflow: hidden;
 }
 
 
@@ -170,9 +173,10 @@ textarea {
 	padding: 1px 0;
 	width: 100%;
 	min-height: 100%;
-	overflow: hidden;
 	display: flex;
 	flex-direction: column;
+	position: relative;
+	z-index: 4;
 }
 
 .container {
@@ -788,6 +792,7 @@ button.btn-default {
 @import "../common/hero/hero";
 @import "../common/table-tabs/table-tabs";
 @import "../common/video-block/video-block";
+@import "../common/history/history";
 // ==== BLOCKS =====================================================
 
 // ==== PAGES =====================================================

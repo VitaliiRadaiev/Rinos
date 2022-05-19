@@ -7,6 +7,11 @@ window.addEventListener('load', function () {
 
 	document.body.classList.add('is-load');
 
+	let wrapper = document.createElement('div');
+	wrapper.className = 'wrapper';
+	wrapper.append(...document.body.children);
+	document.body.append(wrapper);
+
 	//==== ADD PADDING-TOP ================================
 	{
 		let wrapper = document.querySelector('._padding-top');
@@ -70,6 +75,7 @@ window.addEventListener('load', function () {
 	@@include('../common/checkbox/checkbox.js');
 	@@include('../common/table-tabs/table-tabs.js');
 	@@include('../common/video-block/video-block.js');
+	@@include('../common/history/history.js');
 
 });
 
