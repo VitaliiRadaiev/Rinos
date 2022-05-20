@@ -3424,7 +3424,8 @@ h1 {
 }
 
 .history {
-  margin-bottom: 180px;
+  margin-bottom: 120px;
+  padding-top: 30px;
   position: relative;
   z-index: 30;
 }
@@ -3677,6 +3678,12 @@ h1 {
 
 .history__mob-text > *:last-child {
   margin-bottom: 0;
+}
+
+.history__autoheight {
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
 }
 
 .promo-header {
@@ -6685,6 +6692,10 @@ h1 {
 
   .history__text {
     display: none;
+  }
+
+  .history__autoheight {
+    display: none !important;
   }
 
   .promo-header {

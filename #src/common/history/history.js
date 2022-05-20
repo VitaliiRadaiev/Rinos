@@ -4,8 +4,12 @@
         
         let navSlider = history.querySelector('.history__slider');
         let textSlider = history.querySelector('.history__slider-mob-text');
+        let wrapper = navSlider.querySelector('.swiper-wrapper')
         let navSliderSwiper;
         let textSliderSwiper;
+        let autoHeightEl = document.createElement('div');
+        autoHeightEl.className = 'history__autoheight';
+        history.append(autoHeightEl);
 
         if(textSlider) {
             textSliderSwiper = new Swiper(textSlider, {
@@ -17,7 +21,7 @@
             });
         }
 
-        let initSlide = Math.floor(navSlider.querySelector('.swiper-wrapper').children.length / 2)
+        let initSlide = Math.floor(wrapper.children.length / 2);
 
         if(navSlider) {
             navSliderSwiper = new Swiper(navSlider, {
@@ -34,10 +38,9 @@
 
                 on: {
                     slideChange: (e) => {
-                        console.log(e.activeIndex);
-                        console.log(textSliderSwiper);
-                        textSliderSwiper.slideTo(e.activeIndex)
-                    }
+                        textSliderSwiper.slideTo(e.activeIndex);
+                        autoHeightEl.style.height = wrapper.children[e.activeIndex].querySelector('.history__text').clientHeight + 'px';
+                    },
                 }
             });
         }
