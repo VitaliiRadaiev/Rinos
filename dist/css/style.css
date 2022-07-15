@@ -3603,7 +3603,7 @@ h1 {
   width: 20px;
 }
 
-.history__slider .swiper-slide.swiper-slide-active .history__text {
+.history__slider .swiper-slide.swiper-slide-active .history__text-wrap {
   pointer-events: auto;
   opacity: 1;
 }
@@ -3648,28 +3648,61 @@ h1 {
   z-index: 4;
 }
 
-.history__text {
+.history__text-wrap {
   position: absolute;
   top: calc(50% + 2px);
-  left: calc(50% - 1px);
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
   background-color: #fff;
-  padding: 30px 15px 10px;
-  width: 350px;
+  padding: 30px 15px 0px;
+  width: 900px;
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
   opacity: 0;
   pointer-events: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-.history__text:before {
+.history__text-wrap:before {
   position: absolute;
   content: "";
   top: 0;
-  left: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
   height: 100%;
   width: 2px;
   background-color: #0082c9;
+}
+
+.history__text-wrap > *:last-child {
+  margin-bottom: 0;
+}
+
+.history__text-wrap > * {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 calc(50% - 15px);
+          flex: 0 1 calc(50% - 15px);
+}
+
+.history__img > *:last-child {
+  margin-bottom: 0;
+}
+
+.history__img img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 1.55em;
 }
 
 .history__text > *:last-child {
@@ -5581,11 +5614,20 @@ h1 {
             justify-content: space-between;
   }
 
+  .product-properties__item:nth-child(odd) .product-properties__text {
+    padding-bottom: 60px;
+  }
+
   .product-properties__item:nth-child(even) {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: reverse;
         -ms-flex-direction: row-reverse;
             flex-direction: row-reverse;
+    margin-bottom: 60px;
+  }
+
+  .product-properties__item:nth-child(even):last-child {
+    margin-bottom: 0;
   }
 
   .product-properties__item:nth-child(even) .product-properties__head {
@@ -6338,6 +6380,10 @@ h1 {
     padding: 60px 0 90px;
   }
 
+  .history__text-wrap {
+    width: calc(100vw - 30px);
+  }
+
   .promo-header__btn {
     display: none;
   }
@@ -6690,7 +6736,7 @@ h1 {
     width: 90px;
   }
 
-  .history__text {
+  .history__text-wrap {
     display: none;
   }
 

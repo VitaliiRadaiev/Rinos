@@ -119,13 +119,22 @@
         }
 
         &:nth-child(odd) {
-            
+
+            @media (min-width: 768px) {
+                & .product-properties__text  {
+                    padding-bottom: 60px;
+                }
+            }
         }
 
         @media (min-width: 768px) {
             &:nth-child(even) {
                 flex-direction: row-reverse;
-    
+                margin-bottom: 60px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
                 & .product-properties__head {
                     margin-right: 0;
                     margin-left: 40px;

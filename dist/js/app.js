@@ -1631,7 +1631,8 @@ cardVideoHandler();;
             });
         }
 
-        let initSlide = Math.floor(wrapper.children.length / 2);
+        let initSlide = Array.from(wrapper.children).findIndex(i => i.classList.contains('initial-slide'));
+        console.log(initSlide);
 
         if(navSlider) {
             navSliderSwiper = new Swiper(navSlider, {
@@ -1649,8 +1650,12 @@ cardVideoHandler();;
                 on: {
                     slideChange: (e) => {
                         textSliderSwiper.slideTo(e.activeIndex);
-                        autoHeightEl.style.height = wrapper.children[e.activeIndex].querySelector('.history__text').clientHeight + 'px';
+                        autoHeightEl.style.height = wrapper.children[e.activeIndex].querySelector('.history__text-wrap').clientHeight + 'px';
                     },
+                    afterInit: (e) => {
+                        textSliderSwiper.slideTo(e.activeIndex);
+                        autoHeightEl.style.height = wrapper.children[e.activeIndex].querySelector('.history__text-wrap').clientHeight + 'px';
+                    }
                 }
             });
         }
