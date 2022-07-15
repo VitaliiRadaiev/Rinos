@@ -3,26 +3,13 @@
     if(history) {
         
         let navSlider = history.querySelector('.history__slider');
-        let textSlider = history.querySelector('.history__slider-mob-text');
         let wrapper = navSlider.querySelector('.swiper-wrapper')
         let navSliderSwiper;
-        let textSliderSwiper;
         let autoHeightEl = document.createElement('div');
         autoHeightEl.className = 'history__autoheight';
         history.append(autoHeightEl);
 
-        if(textSlider) {
-            textSliderSwiper = new Swiper(textSlider, {
-                slidesPerView: 1,
-                spaceBetween: 20,
-                speed: 800,
-                touchRatio: 0,
-                autoHeight: true,
-            });
-        }
-
         let initSlide = Array.from(wrapper.children).findIndex(i => i.classList.contains('initial-slide'));
-        console.log(initSlide);
 
         if(navSlider) {
             navSliderSwiper = new Swiper(navSlider, {
@@ -39,11 +26,9 @@
 
                 on: {
                     slideChange: (e) => {
-                        textSliderSwiper.slideTo(e.activeIndex);
                         autoHeightEl.style.height = wrapper.children[e.activeIndex].querySelector('.history__text-wrap').clientHeight + 'px';
                     },
                     afterInit: (e) => {
-                        textSliderSwiper.slideTo(e.activeIndex);
                         autoHeightEl.style.height = wrapper.children[e.activeIndex].querySelector('.history__text-wrap').clientHeight + 'px';
                     }
                 }
