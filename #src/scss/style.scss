@@ -593,6 +593,41 @@ button.btn-default {
     }
 }
 
+.images-col-2 {
+	padding: 10px;
+	background-color: #f3f3f3;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+
+	&__item {
+		padding-bottom: 48%;
+		flex: 1 1 auto;
+		min-width: calc(50% - 5px);
+	}
+}
+
+.mb {
+	margin-bottom: 110px;
+
+	@media (max-width: $md2+px) {
+		margin-bottom: 90px;
+	}
+	@media (max-width: $md3+px) {
+		margin-bottom: 50px;
+	}
+}
+.mt {
+	margin-top: 110px;
+
+	@media (max-width: $md2+px) {
+		margin-top: 90px;
+	}
+	@media (max-width: $md3+px) {
+		margin-top: 50px;
+	}
+}
+
 // === TEXT CONTETN BLOCK ========================================================================
 .float-right {
 	float:right;

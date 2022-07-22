@@ -77,6 +77,17 @@ window.addEventListener('load', function () {
 	@@include('../common/video-block/video-block.js');
 	@@include('../common/history/history.js');
 
+
+	// check the number of children
+	let productsListAll = document.querySelectorAll('.products__list');
+	if(productsListAll.length) {
+		productsListAll.forEach(productsList => {
+			if(productsList.children.length < 3) {
+				productsList.classList.add('products__list--items-center')
+			}
+		})
+	}
+
 });
 
 window.addEventListener('DOMContentLoaded', function () {
