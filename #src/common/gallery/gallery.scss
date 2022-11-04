@@ -10,6 +10,7 @@
     &__slider {
         margin-top: -30px;
         padding-top: 30px;
+        
         @media (min-width: 992px) {
             margin-left: -5px;
             margin-right: -25px;
@@ -21,7 +22,7 @@
         }
 
         @media (max-width: 575px) {
-            margin: 0 -15px 0 -5px;
+            margin: 0 -25px 0 -5px;
         }
 
         &.pagination-style {

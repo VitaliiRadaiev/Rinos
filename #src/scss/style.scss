@@ -183,6 +183,7 @@ textarea {
 	max-width: 1140px;
 	margin: 0 auto;
 	padding: 0 15px;
+	width: 100%;
 }
 
 .ibg {
@@ -405,7 +406,11 @@ h1 {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	gap: 50px 30px;
+	gap: 50px 80px;
+
+	@media (max-width: $md2+px) {
+		gap: 50px 50px;
+	}
 
 	@media (max-width: $md3+px) {
 		gap: 25px;
@@ -413,10 +418,10 @@ h1 {
 	}
 
 	&__item {
-		flex: 0 1 calc(33.333333% - calc(30px * 2 / 3));
+		flex: 0 1 calc(33.333333% - calc(80px * 2 / 3));
 
 		@media (max-width: $md2+px) {
-			flex: 0 1 calc(50% - 15px);
+			flex: 0 1 calc(50% - 25px);
 		}
 
 		@media (max-width: $md3+px) {
@@ -562,12 +567,9 @@ button.btn-default {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+	gap: 10px 14px;
 
     & > li {
-        margin-bottom: 10px;
-        &:not(:last-child) {
-            margin-right: 14px;
-        }
 
         & > a {
             display: inline-block;

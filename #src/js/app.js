@@ -33,14 +33,14 @@ window.addEventListener('load', function () {
 			let el = document.querySelector(window.location.hash ? window.location.hash : null);
 
 			const findeParent = (el) => {
-				if(el.parentElement.nodeName === "MAIN") {
+				if (el.parentElement.nodeName === "MAIN") {
 					return el;
 				} else {
 					return findeParent(el.parentElement);
 				}
 			}
 
-			if(el) {
+			if (el) {
 				return findeParent(el);
 			}
 		}
@@ -49,7 +49,7 @@ window.addEventListener('load', function () {
 
 
 		if (el) {
-			if(document.documentElement.clientWidth > 767.98) {
+			if (document.documentElement.clientWidth > 767.98) {
 				window.scrollTo({
 					top: el.offsetTop - 120,
 					behavior: 'smooth'
@@ -78,16 +78,6 @@ window.addEventListener('load', function () {
 	@@include('../common/history/history.js');
 
 
-	// check the number of children
-	let productsListAll = document.querySelectorAll('.products__list');
-	if(productsListAll.length) {
-		productsListAll.forEach(productsList => {
-			if(productsList.children.length < 3) {
-				productsList.classList.add('products__list--items-center')
-			}
-		})
-	}
-
 });
 
 window.addEventListener('DOMContentLoaded', function () {
@@ -112,6 +102,16 @@ window.addEventListener('DOMContentLoaded', function () {
 			document.querySelector('body').classList.add('no-webp');
 		}
 	});
+
+	// check the number of children
+	let productsListAll = document.querySelectorAll('.products__list');
+	if (productsListAll.length) {
+		productsListAll.forEach(productsList => {
+			if (productsList.children.length < 3) {
+				productsList.classList.add('products__list--items-center')
+			}
+		})
+	}
 });
 
 //@@include('plagins/lazy-load.js');

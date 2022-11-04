@@ -33,14 +33,14 @@ window.addEventListener('load', function () {
 			let el = document.querySelector(window.location.hash ? window.location.hash : null);
 
 			const findeParent = (el) => {
-				if(el.parentElement.nodeName === "MAIN") {
+				if (el.parentElement.nodeName === "MAIN") {
 					return el;
 				} else {
 					return findeParent(el.parentElement);
 				}
 			}
 
-			if(el) {
+			if (el) {
 				return findeParent(el);
 			}
 		}
@@ -49,7 +49,7 @@ window.addEventListener('load', function () {
 
 
 		if (el) {
-			if(document.documentElement.clientWidth > 767.98) {
+			if (document.documentElement.clientWidth > 767.98) {
 				window.scrollTo({
 					top: el.offsetTop - 120,
 					behavior: 'smooth'
@@ -1648,16 +1648,6 @@ cardVideoHandler();;
 };
 
 
-	// check the number of children
-	let productsListAll = document.querySelectorAll('.products__list');
-	if(productsListAll.length) {
-		productsListAll.forEach(productsList => {
-			if(productsList.children.length < 3) {
-				productsList.classList.add('products__list--items-center')
-			}
-		})
-	}
-
 });
 
 window.addEventListener('DOMContentLoaded', function () {
@@ -1682,6 +1672,16 @@ window.addEventListener('DOMContentLoaded', function () {
 			document.querySelector('body').classList.add('no-webp');
 		}
 	});
+
+	// check the number of children
+	let productsListAll = document.querySelectorAll('.products__list');
+	if (productsListAll.length) {
+		productsListAll.forEach(productsList => {
+			if (productsList.children.length < 3) {
+				productsList.classList.add('products__list--items-center')
+			}
+		})
+	}
 });
 
 //// html example --- <img class="lazy" data-src="https://images.unsplash.com/photo-1606851091851-e8c8c0fca5ba?ixid=MXwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" src="img/photo/placeholder.jpg" alt="img">
